@@ -9,12 +9,18 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * speed;
+        rb.linearVelocity = transform.right * speed;
     }
 
     private void Update()
     {
         Destroy(gameObject, 3f);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("dood");
+        }
+    }
 }

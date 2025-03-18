@@ -29,9 +29,9 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        float vecticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * movementSpeed;
-        float horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * movementSpeed;
-        rb.AddRelativeForce(horizontalSpeed, vecticalSpeed, 0, ForceMode.Acceleration);
+        float vecticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
+        float horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
+        rb.AddRelativeForce(horizontalSpeed, vecticalSpeed,0 , ForceMode.Acceleration);
     }
 
     void RotatePlayer()
@@ -44,12 +44,12 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
+        fireTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("FIRE!");
-            fireTimer += Time.deltaTime;
             if(fireTimer > fireRate)
             {
+                Debug.Log("FIRE!");
                 Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 fireTimer = 0;
             }
