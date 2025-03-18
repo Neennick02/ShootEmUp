@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        RotatePlayer();
         Shoot();
     }
 
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         float vecticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * movementSpeed;
         float horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * movementSpeed;
-        rb.AddRelativeForce(horizontalSpeed, 0, vecticalSpeed, ForceMode.Acceleration);
+        rb.AddRelativeForce(horizontalSpeed, vecticalSpeed, 0, ForceMode.Acceleration);
     }
 
     void RotatePlayer()
