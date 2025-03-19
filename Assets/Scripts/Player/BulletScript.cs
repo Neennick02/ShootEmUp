@@ -4,12 +4,12 @@ public class BulletScript : MonoBehaviour
 {
     Rigidbody rb;
 
-    [SerializeField] private float speed = 50f;
+    [SerializeField] private float bulletSpeed = 50f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.right * speed;
+        rb.linearVelocity = transform.right * bulletSpeed;
     }
 
     private void Update()
