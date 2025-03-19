@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveUpDownAndLeft : MonoBehaviour
 {
-    [SerializeField] private float xSpeed = 50f;
+    [SerializeField] private float xSpeed = 5f;
     [SerializeField] private float yRange = 5f;
     [SerializeField] private float upDownTime = 5f;
     
