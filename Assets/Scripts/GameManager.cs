@@ -2,8 +2,12 @@ using UnityEngine;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private bool godMode = false;
     public int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
+    
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Health playerHeath;
     private bool gameStarted = true;
 
 
@@ -12,18 +16,30 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        EnableGodMode();
     }
 
     private void Update()
     {
-        DisplayScore();
+        DisplayUI();
         PauseGame();
+    }
+
+    void DisplayUI()
+    {
+        //alle ui elementen die door de gamemanager aangestuurd worden
+        DisplayScore();
+        DisplayHealth();
     }
 
     void DisplayScore()
     {
         scoreText.text = "Score :" + score;
+    }
+
+    void DisplayHealth()
+    {
+       healthText.text = "Health :" + playerHeath.currentHealth;
     }
 
     private void PauseGame()
@@ -40,6 +56,14 @@ public class GameManager : MonoBehaviour
             }
         }
         
+    }
+
+    void EnableGodMode()
+    {
+        if (godMode)
+        {
+            playerHeath.currentHealth = 1000000;
+        }
     }
 
     private void PauseAndUnPause(float timeScale, bool isPaused)

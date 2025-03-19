@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 8214106467902681146}
   - component: {fileID: 8709425171273810250}
   - component: {fileID: 8651454812634417480}
-  - component: {fileID: 5790379203682541535}
   - component: {fileID: 1836761735448209957}
   - component: {fileID: 7142778951122312185}
   - component: {fileID: 5571971469644580082}
@@ -144,29 +143,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &5790379203682541535
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822257110706964992}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.56
-  m_Center: {x: 0, y: -0.12, z: 0}
+  m_Radius: 0.65
+  m_Center: {x: 0, y: -0.13, z: 0}
 --- !u!54 &1836761735448209957
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -237,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!1 &6354348471508700646
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,15 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void ClampMovement()
     {
-        currentPosition = transform.position;
-        if(currentPosition.y > 25)
-        {
-            currentPosition.y = 25;
-        }
-        else if(currentPosition.y < -5)
-        {
-            currentPosition.y = -5;
-        }
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -5, 25), transform.position.z);
         
     }
 
@@ -57,7 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             if(fireTimer > fireRate)
             {
-                Debug.Log("FIRE!");
                 Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 fireTimer = 0;
             }
