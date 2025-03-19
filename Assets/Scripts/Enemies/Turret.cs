@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] private float interval = 5f;
+    [SerializeField] private float interval = 1f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPoint;
     private float timer = 0f;

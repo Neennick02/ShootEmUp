@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    Vector3 currentPosition;
     [SerializeField] float movementSpeed = 50f;
-    [SerializeField] float rotationSpeed = 50f;
     Rigidbody rb;
 
     [SerializeField] private float fireRate = 1f;
@@ -20,10 +20,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Shoot();
+        
     }
 
     void FixedUpdate()
     {
+        ClampMovement();
         MovePlayer();
     }
 
@@ -31,15 +33,13 @@ public class PlayerController : MonoBehaviour
     {
         float vecticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
         float horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
-        rb.AddRelativeForce(horizontalSpeed, vecticalSpeed,0 , ForceMode.Acceleration);
+        rb.AddRelativeForce(horizontalSpeed, vecticalSpeed,0);
     }
 
-    void RotatePlayer()
+    void ClampMovement()
     {
-        //zorgt dat je de player kan draaien
-        float rotationInput = Input.GetAxisRaw("Horizontal");
-        float rotationAmount = rotationInput * Time.deltaTime * rotationSpeed;
-        rb.rotation *= Quaternion.AngleAxis(rotationAmount, Vector3.up);
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -5, 25), transform.position.z);
+        
     }
 
     void Shoot()
@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
         {
             if(fireTimer > fireRate)
             {
-                Debug.Log("FIRE!");
                 Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 fireTimer = 0;
             }
