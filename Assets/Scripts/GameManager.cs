@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
@@ -12,10 +13,13 @@ public class GameManager : MonoBehaviour
 
 
     private bool paused = false;
+    private int currentWave = 1;
+    private List<GameObject> enemies;
 
 
     private void Start()
     {
+        enemies = new List<GameObject>();
         EnableGodMode();
     }
 

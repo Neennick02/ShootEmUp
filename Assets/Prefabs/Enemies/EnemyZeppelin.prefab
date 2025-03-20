@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6749989544923686629}
   - component: {fileID: 2461241153480669476}
   - component: {fileID: 5216050110680729559}
+  - component: {fileID: 5564643959906693243}
   m_Layer: 0
   m_Name: EnemyZeppelin
   m_TagString: Enemy
@@ -142,6 +143,20 @@ MonoBehaviour:
   interval: 1
   bullet: {fileID: 4078469466164136347, guid: 4695b6aa02f7c2842bd9df9b55a3189e, type: 3}
   bulletSpawnPoint: {fileID: 1451439186784083116}
+--- !u!114 &5564643959906693243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367410021457375663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483c54c7960ce994085833878ab07c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentHealth: 0
 --- !u!1 &8874289719112452514
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3165803016011294756}
   - component: {fileID: 8281297908754882300}
   - component: {fileID: 3508528428944209342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
@@ -150,3 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
+  enemyDamage: 10
