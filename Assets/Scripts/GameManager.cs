@@ -25,25 +25,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        DisplayUI();
+        DisplayScore();
         PauseGame();
     }
-
-    void DisplayUI()
-    {
-        //alle ui elementen die door de gamemanager aangestuurd worden
-        DisplayScore();
-        DisplayHealth();
-    }
-
     void DisplayScore()
     {
         scoreText.text = "Score :" + score;
-    }
-
-    void DisplayHealth()
-    {
-       healthText.text = "Health :" + playerHeath.currentHealth;
     }
 
     private void PauseGame()

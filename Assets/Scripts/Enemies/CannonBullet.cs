@@ -14,14 +14,19 @@ public class CannonBullet : MonoBehaviour
 
     void Update()
     {
-        
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Health>().takeDamage(damageAmount);
+            Debug.Log("Player");
+            other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("Water");
+            //splash effect
             Destroy(gameObject);
         }
     }

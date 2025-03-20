@@ -5,7 +5,7 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private float bulletSpeed = 50f;
     Rigidbody rb;
 
-    public int enemyDamage = 10;
+    public int damageAmount = 10;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,14 +17,19 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //damage player 
-            other.gameObject.GetComponent<Health>().takeDamage(enemyDamage);
+            collision.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
 
+        }
+        else if (collision.gameObject.CompareTag("Water"))
+        {
+            //splash effect
+            Destroy(gameObject);
         }
     }
 }

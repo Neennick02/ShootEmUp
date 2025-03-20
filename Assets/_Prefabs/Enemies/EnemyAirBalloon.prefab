@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1809174479616420740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7142778951122312185}
   - component: {fileID: 5571971469644580082}
   - component: {fileID: 799607032894713339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyAirBalloon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 1
-  bullet: {fileID: 4078469466164136347, guid: 4695b6aa02f7c2842bd9df9b55a3189e, type: 3}
+  bullet: {fileID: 4078469466164136347, guid: 1f973b91b8a48e14a81ab955fa105123, type: 3}
   bulletSpawnPoint: {fileID: 1809174479616420740}
 --- !u!114 &799607032894713339
 MonoBehaviour:
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c54c7960ce994085833878ab07c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
 --- !u!1 &6354348471508700646
 GameObject:
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 3814363551172772278}
   - component: {fileID: 2757951090949148785}
   - component: {fileID: 7311108745685364674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

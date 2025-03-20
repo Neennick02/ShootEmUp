@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float movementSpeed = 50f;
     Rigidbody rb;
 
-    [SerializeField] private float fireRate = 1f;
-    private float fireTimer = 0f;
+    [SerializeField] private float bulletFireRate = 1f;
+    [SerializeField] private float bombFireRate = 1f;
+    private float bulletTimer = 0f;
+    private float bombTimer = 0f;
     [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private Transform bombSpawnPoint;
 
-    [SerializeField] private GameObject Bullet;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bombPrefab;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,7 +24,9 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Shoot();
-        
+        DropBomb();
+
+
     }
 
     void FixedUpdate()
@@ -44,13 +50,26 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        fireTimer += Time.deltaTime;
+        bulletTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            if(fireTimer > fireRate)
+            if(bulletTimer > bulletFireRate)
             {
-                Instantiate(Bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-                fireTimer = 0;
+                Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                bulletTimer = 0;
+            }
+        }
+    }
+
+    void DropBomb()
+    {
+        bombTimer += Time.deltaTime;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (bombTimer > bombFireRate)
+            {
+                Instantiate(bombPrefab, bombSpawnPoint.position, bulletSpawnPoint.rotation);
+                bombTimer = 0f;
             }
         }
     }
