@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health, maxHealth;
+    public int health, maxHealth;
 
     [SerializeField] private HealthBarUI healthBar;
 
@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    public void SetHealth(float healthChange)
+    public void SetHealth(int healthChange)
     {
         health += healthChange;
         health = Mathf.Clamp(health, 0, maxHealth);

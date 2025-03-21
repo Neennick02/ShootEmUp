@@ -1,17 +1,24 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
     public int score = 0;
 
     [Header("Do Not Touch")]
+    private bool isAlive = true;
     private float textTimer = 0f;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject waveObject;
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private PlayerHealth playerHeath;
+
+    [SerializeField] private GameObject deathScreen;
+    private PlayerController playerController;
+
+    [SerializeField] private GameObject pauseScreen;
 
     [SerializeField] private Transform spawn1, spawn2, spawn3, spawn4;
 
@@ -27,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         enemies = new List<GameObject>();
+        playerController = FindFirstObjectByType<PlayerController>();
         StartWave();
     }
 
@@ -37,7 +45,25 @@ public class GameManager : MonoBehaviour
         EnableGodMode();
         DisplayWaveText();
         DisplayScore();
+        GameOver();
         PauseGame();
+    }
+    void GameOver()
+    {
+        if(playerHeath.health <= 0)
+        {
+            isAlive = false;
+            gameStarted = false;
+        }
+        if (!isAlive)
+        {
+            deathScreen.SetActive(true);
+            Destroy(playerController); 
+            if (Input.GetKeyDown(KeyCode.R)) //reset scene
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+        }
     }
 
     void StartWave()
@@ -71,10 +97,12 @@ public class GameManager : MonoBehaviour
         {
             if (!paused)
             {
+                pauseScreen.SetActive(true);
                 PauseAndUnPause(0f, true);
             }
             else
             {
+                pauseScreen.SetActive(false);
                 PauseAndUnPause(1f, false);
             }
         }
@@ -85,8 +113,8 @@ public class GameManager : MonoBehaviour
     {
         if (godMode)
         {
-            playerHeath.maxHealth = 10000f;
-            playerHeath.SetHealth(10000f);
+            playerHeath.maxHealth = 10000;
+            playerHeath.SetHealth(10000);
         }
     }
 
