@@ -5,10 +5,17 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
     public int score = 0;
+
+    [Header("Do Not Touch")]
+    private float textTimer = 0f;
     [SerializeField] private TextMeshProUGUI scoreText;
-    
-    [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private Health playerHeath;
+    [SerializeField] private GameObject waveObject;
+    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private PlayerHealth playerHeath;
+
+    [SerializeField] private Transform spawn1, spawn2, spawn3, spawn4;
+
+    [SerializeField] private GameObject zeppelinPrefab, boatPrefab1, boatPrefab2;
     private bool gameStarted = true;
 
 
@@ -20,17 +27,42 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         enemies = new List<GameObject>();
-        EnableGodMode();
+        StartWave();
     }
 
     private void Update()
     {
+        textTimer += Time.deltaTime;
+        Debug.Log(textTimer);
+        EnableGodMode();
+        DisplayWaveText();
         DisplayScore();
         PauseGame();
+    }
+
+    void StartWave()
+    {
+        Instantiate(zeppelinPrefab, spawn1.position, Quaternion.identity);
+        Instantiate(boatPrefab1 , spawn3.position, Quaternion.identity);
+        Instantiate(boatPrefab2 , spawn2.position, Quaternion.identity);
     }
     void DisplayScore()
     {
         scoreText.text = "Score :" + score;
+    }
+
+    void DisplayWaveText()
+    {
+        waveText.text = "Wave :" + currentWave; 
+        ShowText(waveObject, 1f);
+    }
+    void ShowText(GameObject obj, float duration)
+    {
+        obj.SetActive(true);
+        if(textTimer > duration)
+        {
+            obj.SetActive(false);
+        }
     }
 
     private void PauseGame()
@@ -53,7 +85,8 @@ public class GameManager : MonoBehaviour
     {
         if (godMode)
         {
-            playerHeath.currentHealth = 1000000;
+            playerHeath.maxHealth = 10000f;
+            playerHeath.SetHealth(10000f);
         }
     }
 

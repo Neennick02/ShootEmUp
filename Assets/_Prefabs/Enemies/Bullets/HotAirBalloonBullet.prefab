@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3165803016011294756}
   - component: {fileID: 8281297908754882300}
   - component: {fileID: 3508528428944209342}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HotAirBalloonBullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
@@ -150,4 +150,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
-  enemyDamage: 10
+  damageAmount: 10

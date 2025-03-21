@@ -3,7 +3,12 @@ using UnityEngine;
 public class BombScript : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 30;
-    [SerializeField] private ScreenShake screenShake;
+    private ScreenShake screenShake;
+
+    private void Start()
+    {
+        screenShake = FindFirstObjectByType<ScreenShake>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Water"))
