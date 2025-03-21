@@ -3,11 +3,13 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 50f;
+    private ScreenShake screenShake;
     Rigidbody rb;
 
     public int damageAmount = 10;
     void Start()
     {
+        screenShake = FindFirstObjectByType<ScreenShake>();
         rb = GetComponent<Rigidbody>();
         rb.linearVelocity = -transform.right * bulletSpeed;
     }
@@ -31,6 +33,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //explosie
+            screenShake.start = true;
             other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
         }

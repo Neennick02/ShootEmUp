@@ -6,10 +6,12 @@ public class BulletScript : MonoBehaviour
     public int playerDamage = 10;
     private int scoreAmount = 10;
     [SerializeField] private float bulletSpeed = 50f;
+    private ScreenShake screenShake;
     private GameManager gameManager;
 
     private void Start()
     {
+        screenShake = FindFirstObjectByType<ScreenShake>();
         gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         rb.linearVelocity = transform.right * bulletSpeed;
@@ -35,6 +37,7 @@ public class BulletScript : MonoBehaviour
         {
             //damage Enemy 
             other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            screenShake.start = true;
             gameManager.score += scoreAmount;
             Destroy(gameObject);
         }
