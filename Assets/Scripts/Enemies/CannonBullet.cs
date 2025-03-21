@@ -17,16 +17,18 @@ public class CannonBullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Water"))
         {
-            Debug.Log("Player");
-            other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
+            //splash effect
             Destroy(gameObject);
         }
-        else if (other.gameObject.CompareTag("Water"))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Water");
-            //splash effect
+            other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
         }
     }

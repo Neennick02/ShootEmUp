@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void ClampMovement()
     {
-        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -5, 25), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -30, 25), Mathf.Clamp(transform.position.y, -5, 25), transform.position.z);
         
     }
 

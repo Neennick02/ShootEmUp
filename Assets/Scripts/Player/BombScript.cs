@@ -10,10 +10,14 @@ public class BombScript : MonoBehaviour
             //water splash
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Enemy"))
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
         {
             //explosion prefab
-            collision.gameObject.GetComponent<Health>().takeDamage(damageAmount);
+            other.gameObject.GetComponent<Health>().takeDamage(damageAmount);
             Destroy(gameObject);
         }
     }

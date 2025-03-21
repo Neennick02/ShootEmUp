@@ -191,7 +191,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 1
+  startDelay: 5
   bullet: {fileID: 8347674606488146748, guid: e1f154a094807434082b1327ef1586cf, type: 3}
   bulletSpawnPoint: {fileID: 5316285994988084577}
 --- !u!114 &-6268987784335559955

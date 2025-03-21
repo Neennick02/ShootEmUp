@@ -23,11 +23,18 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Water"))
         {
-            Debug.Log(collision.gameObject.name);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
             //damage Enemy 
-            collision.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
             gameManager.score += scoreAmount;
             Destroy(gameObject);
         }
