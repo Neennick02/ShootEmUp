@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float currentHealth, maxHealth;
+    public float health, maxHealth;
 
     [SerializeField] private HealthBarUI healthBar;
 
     private void Start()
     {
+        health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
     public void SetHealth(float healthChange)
     {
-        currentHealth += healthChange;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        health += healthChange;
+        health = Mathf.Clamp(health, 0, maxHealth);
 
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(health);
     }
 }
