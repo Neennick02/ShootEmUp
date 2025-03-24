@@ -1,0 +1,85 @@
+{
+    "name": "Minedump Flats",
+    "id": "minedump_flats",
+    "scraper": "PolyHavenHdriScraper",
+    "fetchUrl": "https://polyhaven.com/a/minedump_flats",
+    "thumbnail": "thumb.png",
+    "variants": [
+        "1k (exr)",
+        "2k (exr)",
+        "4k (exr)",
+        "8k (exr)",
+        "16k (exr)",
+        "20k (exr)",
+        "1k (hdr)",
+        "2k (hdr)",
+        "4k (hdr)",
+        "8k (hdr)",
+        "16k (hdr)",
+        "20k (hdr)"
+    ],
+    "custom": {
+        "variant_data": [
+            [
+                "1k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/1k/minedump_flats_1k.exr"
+            ],
+            [
+                "2k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/2k/minedump_flats_2k.exr"
+            ],
+            [
+                "4k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/4k/minedump_flats_4k.exr"
+            ],
+            [
+                "8k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/8k/minedump_flats_8k.exr"
+            ],
+            [
+                "16k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/16k%2B/minedump_flats_16k.exr"
+            ],
+            [
+                "20k",
+                "exr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/exr/16k%2B/minedump_flats_20k.exr"
+            ],
+            [
+                "1k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/minedump_flats_1k.hdr"
+            ],
+            [
+                "2k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/minedump_flats_2k.hdr"
+            ],
+            [
+                "4k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/minedump_flats_4k.hdr"
+            ],
+            [
+                "8k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/8k/minedump_flats_8k.hdr"
+            ],
+            [
+                "16k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/16k%2B/minedump_flats_16k.hdr"
+            ],
+            [
+                "20k",
+                "hdr",
+                "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/16k%2B/minedump_flats_20k.hdr"
+            ]
+        ]
+    }
+}

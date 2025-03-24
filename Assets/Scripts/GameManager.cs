@@ -1,14 +1,28 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
     public int score = 0;
+
+    [Header("Do Not Touch")]
+    private bool isAlive = true;
+    private float textTimer = 0f;
     [SerializeField] private TextMeshProUGUI scoreText;
-    
-    [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private Health playerHeath;
+    [SerializeField] private GameObject waveObject;
+    [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private PlayerHealth playerHeath;
+
+    [SerializeField] private GameObject deathScreen;
+    private PlayerController playerController;
+
+    [SerializeField] private GameObject pauseScreen;
+
+    [SerializeField] private Transform spawn1, spawn2, spawn3, spawn4;
+
+    [SerializeField] private GameObject zeppelinPrefab, boatPrefab1, boatPrefab2;
     private bool gameStarted = true;
 
 
@@ -20,30 +34,61 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         enemies = new List<GameObject>();
-        EnableGodMode();
+        playerController = FindFirstObjectByType<PlayerController>();
+        StartWave();
     }
 
     private void Update()
     {
-        DisplayUI();
+        textTimer += Time.deltaTime;
+        Debug.Log(textTimer);
+        EnableGodMode();
+        DisplayWaveText();
+        DisplayScore();
+        GameOver();
         PauseGame();
     }
-
-    void DisplayUI()
+    void GameOver()
     {
-        //alle ui elementen die door de gamemanager aangestuurd worden
-        DisplayScore();
-        DisplayHealth();
+        if(playerHeath.health <= 0)
+        {
+            isAlive = false;
+            gameStarted = false;
+        }
+        if (!isAlive)
+        {
+            deathScreen.SetActive(true);
+            Destroy(playerController); 
+            if (Input.GetKeyDown(KeyCode.R)) //reset scene
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+        }
     }
 
+    void StartWave()
+    {
+        Instantiate(zeppelinPrefab, spawn1.position, Quaternion.identity);
+        Instantiate(boatPrefab1 , spawn3.position, Quaternion.identity);
+        Instantiate(boatPrefab2 , spawn2.position, Quaternion.identity);
+    }
     void DisplayScore()
     {
         scoreText.text = "Score :" + score;
     }
 
-    void DisplayHealth()
+    void DisplayWaveText()
     {
-       healthText.text = "Health :" + playerHeath.currentHealth;
+        waveText.text = "Wave :" + currentWave; 
+        ShowText(waveObject, 1f);
+    }
+    void ShowText(GameObject obj, float duration)
+    {
+        obj.SetActive(true);
+        if(textTimer > duration)
+        {
+            obj.SetActive(false);
+        }
     }
 
     private void PauseGame()
@@ -52,10 +97,12 @@ public class GameManager : MonoBehaviour
         {
             if (!paused)
             {
+                pauseScreen.SetActive(true);
                 PauseAndUnPause(0f, true);
             }
             else
             {
+                pauseScreen.SetActive(false);
                 PauseAndUnPause(1f, false);
             }
         }
@@ -66,7 +113,8 @@ public class GameManager : MonoBehaviour
     {
         if (godMode)
         {
-            playerHeath.currentHealth = 1000000;
+            playerHeath.maxHealth = 10000;
+            playerHeath.SetHealth(10000);
         }
     }
 

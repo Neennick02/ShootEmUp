@@ -3,11 +3,13 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 50f;
+    private ScreenShake screenShake;
     Rigidbody rb;
 
-    public int enemyDamage = 10;
+    public int damageAmount = 10;
     void Start()
     {
+        screenShake = FindFirstObjectByType<ScreenShake>();
         rb = GetComponent<Rigidbody>();
         rb.linearVelocity = -transform.right * bulletSpeed;
     }
@@ -17,14 +19,23 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            //splash effect
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //damage player 
-            other.gameObject.GetComponent<Health>().takeDamage(enemyDamage);
+            //explosie
+            screenShake.start = true;
+            other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
-
         }
     }
 }
