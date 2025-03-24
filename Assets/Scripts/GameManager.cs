@@ -6,47 +6,71 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
     public int score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    [Header("Do Not Touch")]
+    public int scrapCounter = 0;
+    [SerializeField] private TextMeshProUGUI scrapText;
+
     private bool isAlive = true;
     private float textTimer = 0f;
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject waveObject;
-    [SerializeField] private TextMeshProUGUI waveText;
-    [SerializeField] private PlayerHealth playerHeath;
+    [Header("UI elements")]
+    
 
+    [SerializeField] private GameObject waveObject;
+    [SerializeField] private GameObject bossWaveObject;
+    [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private GameObject deathScreen;
+
+    private PlayerHealth playerHeath;
     private PlayerController playerController;
 
     [SerializeField] private GameObject pauseScreen;
+    [Header("Spawn Locations")]
+    [SerializeField] private Transform spawn1;
+    [SerializeField] private Transform spawn2;
+    [SerializeField] private Transform spawn3;
+    [SerializeField] private Transform spawn4;
+    [Header("Enemy Prefabs")]
+    [SerializeField] private GameObject zeppelinPrefab;
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private GameObject boatPrefab1;
+    [SerializeField] private GameObject boatPrefab2;
+    [Header("Enemies active in scene")]
+    [SerializeField] public List<GameObject> enemies;
 
-    [SerializeField] private Transform spawn1, spawn2, spawn3, spawn4;
-
-    [SerializeField] private GameObject zeppelinPrefab, boatPrefab1, boatPrefab2;
     private bool gameStarted = true;
-
-
     private bool paused = false;
+
+
     private int currentWave = 1;
-    private List<GameObject> enemies;
+    private bool showWave = true;
+    
 
 
     private void Start()
     {
         enemies = new List<GameObject>();
         playerController = FindFirstObjectByType<PlayerController>();
+        playerHeath = FindFirstObjectByType<PlayerHealth>();    
+        DisplayWaveText(true);
         StartWave();
+
     }
 
     private void Update()
     {
-        textTimer += Time.deltaTime;
-        Debug.Log(textTimer);
         EnableGodMode();
-        DisplayWaveText();
-        DisplayScore();
+        
+        DisplayCounters();
         GameOver();
         PauseGame();
+        CheckEnemies();
+
+        Debug.Log(textTimer);
+        if (showWave)
+        {
+            ShowText();
+        }
     }
     void GameOver()
     {
@@ -72,22 +96,58 @@ public class GameManager : MonoBehaviour
         Instantiate(boatPrefab1 , spawn3.position, Quaternion.identity);
         Instantiate(boatPrefab2 , spawn2.position, Quaternion.identity);
     }
-    void DisplayScore()
+
+    void CheckEnemies()
     {
-        scoreText.text = "Score :" + score;
+        if(enemies.Count == 0)
+        {
+            BossWave(); 
+        }
     }
 
-    void DisplayWaveText()
+    void NextWave()
     {
-        waveText.text = "Wave :" + currentWave; 
-        ShowText(waveObject, 1f);
+        //code voor volgende wave
     }
-    void ShowText(GameObject obj, float duration)
+
+    void BossWave()
     {
-        obj.SetActive(true);
-        if(textTimer > duration)
+        bossWaveObject.SetActive(true);
+        //code voor boss wave
+        Instantiate(zeppelinPrefab, spawn1.position, Quaternion.identity);
+        Instantiate(boatPrefab1, spawn3.position, Quaternion.identity);
+        Instantiate(boatPrefab2, spawn2.position, Quaternion.identity);
+        Instantiate(bossPrefab, spawn4.position, Quaternion.identity);
+    }
+    void DisplayCounters()
+    {
+        DisplayScrap();
+        DisplayScore();
+    }
+
+    void DisplayScrap()
+    {
+        scrapText.text = "Scrap : " + scrapCounter;
+    }
+    void DisplayScore()
+    {
+        scoreText.text = "Score : " + score;
+    }
+
+    void DisplayWaveText(bool show)
+    {
+        waveText.text = "Wave :" + currentWave;
+        
+    }
+    void ShowText()
+    {
+        waveObject.SetActive(true);
+        textTimer += Time.deltaTime;
+        if (textTimer > 1)
         {
-            obj.SetActive(false);
+            textTimer = 0;
+            waveObject.SetActive(false);
+            showWave = false;
         }
     }
 

@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 1
+  startDelay: 5
   bullet: {fileID: 4078469466164136347, guid: 1f973b91b8a48e14a81ab955fa105123, type: 3}
   bulletSpawnPoint: {fileID: 1809174479616420740}
 --- !u!114 &799607032894713339
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  scrapPrefab: {fileID: 4894546655571899631, guid: 3d991e4016cd73044a2bda3a8b2978b0, type: 3}
   currentHealth: 0
 --- !u!1 &6354348471508700646
 GameObject:

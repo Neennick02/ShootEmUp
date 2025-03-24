@@ -5,6 +5,7 @@ public class MoveUpDownAndLeft : MonoBehaviour
     [SerializeField] private float xSpeed = 5f;
     [SerializeField] private float yRange = 5f;
     [SerializeField] private float upDownTime = 5f;
+    private GameManager gameManager;
     
     float timer = 0f;
 
@@ -13,6 +14,7 @@ public class MoveUpDownAndLeft : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
     }
@@ -20,6 +22,17 @@ public class MoveUpDownAndLeft : MonoBehaviour
     private void Update()
     {
         MoveObject();
+        CheckPostion();
+    }
+
+    void CheckPostion()
+    {
+        if(transform.position.x < -40)
+        {
+            gameManager.score -= 20;
+            gameManager.enemies.Remove(gameObject);
+            Destroy(gameObject);
+        }
     }
 
     void MoveObject() // beweegt object van rechts naar links en up en neer
