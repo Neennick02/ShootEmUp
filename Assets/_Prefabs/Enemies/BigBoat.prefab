@@ -187,4 +187,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
+  scrapPrefab: {fileID: 4894546655571899631, guid: 3d991e4016cd73044a2bda3a8b2978b0, type: 3}
   currentHealth: 0

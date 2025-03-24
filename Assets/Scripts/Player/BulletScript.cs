@@ -37,9 +37,16 @@ public class BulletScript : MonoBehaviour
         {
             //damage Enemy 
             other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            
             screenShake.start = true;
             gameManager.score += scoreAmount;
             Destroy(gameObject);
+        }
+
+        else if (other.gameObject.CompareTag("Scrap"))
+        {
+            Destroy(other.gameObject);
+            gameManager.scrapCounter++;
         }
     }
 }
