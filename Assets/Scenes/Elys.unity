@@ -240,7 +240,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &1019883677
+--- !u!1001 &961649007
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -250,7 +250,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d7dc6a4ec3c97df42afeaf9e014200d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7dc6a4ec3c97df42afeaf9e014200d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -290,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d7dc6a4ec3c97df42afeaf9e014200d0, type: 3}
       propertyPath: m_Name
-      value: Small boat
+      value: Small boat (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -395,4 +395,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1507249440}
   - {fileID: 372400178}
-  - {fileID: 1019883677}
+  - {fileID: 961649007}
