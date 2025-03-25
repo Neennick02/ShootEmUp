@@ -47,10 +47,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        bossBeaten = false;
         enemies = new List<GameObject>();
+
         playerController = FindFirstObjectByType<PlayerController>();
         playerHeath = FindFirstObjectByType<PlayerHealth>();    
-        DisplayWaveText(true);
+        DisplayWaveText(true, false);
         StartWave();
 
     }
@@ -60,18 +62,19 @@ public class GameManager : MonoBehaviour
         EnableGodMode();
         
         DisplayCounters();
+
         GameOver();
         EndGame();
         PauseGame();
+
         CheckEnemies();
 
-        Debug.Log(textTimer);
         if (showWave)
         {
-            ShowText(waveObject);
+            ShowText();
         }
     }
-    void GameOver()
+    void GameOver() // checkt of speler dood is
     {
         if(playerHeath.health <= 0)
         {
@@ -96,14 +99,14 @@ public class GameManager : MonoBehaviour
 
     void StartWave()
     {
-        Instantiate(enemiePrefabs[1], spawnPoints[5].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[2] , spawnPoints[4].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[3] , spawnPoints[3].position, Quaternion.identity);
+        Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
+        Instantiate(enemiePrefabs[1] , spawnPoints[4].position, Quaternion.identity);
+        Instantiate(enemiePrefabs[2] , spawnPoints[3].position, Quaternion.identity);
     }
 
     void CheckEnemies()
     {
-        if(enemies.Count == 0)
+        if(enemies.Count == 0 && !bossBeaten)
         {
             BossWave(); 
         }
@@ -126,8 +129,14 @@ public class GameManager : MonoBehaviour
 
     void BossWave()
     {
-        ShowText(bossWaveObject);
         //code voor boss wave
+        showWave = true;
+        DisplayWaveText(true, true);
+        if (showWave)
+        {
+            ShowText();
+        }
+        //enemise die gespawned worden
         Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
         Instantiate(enemiePrefabs[1], spawnPoints[4].position, Quaternion.identity);
         Instantiate(enemiePrefabs[2], spawnPoints[0].position, Quaternion.identity);
@@ -139,6 +148,7 @@ public class GameManager : MonoBehaviour
     {
         DisplayScrap();
         DisplayScore();
+        //wave bar
     }
 
     void DisplayScrap() //geeft het aantal verzamelde scrap weer
@@ -150,19 +160,22 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score : " + score;
     }
 
-    void DisplayWaveText(bool show) //geeft de wave tekst weer
+    void DisplayWaveText(bool show, bool isBoss) //geeft de wave tekst weer
     {
         waveText.text = "Wave :" + currentWave;
-        
+        if (isBoss)
+        {
+            waveText.text = "Boss incoming!";
+        }
     }
-    void ShowText(GameObject obj) //kan tekst tijdelijk in beeld brengen
+    void ShowText() //kan tekst tijdelijk in beeld brengen
     {
-        obj.SetActive(true);
+        waveObject.SetActive(true);
         textTimer += Time.deltaTime;
         if (textTimer > 1)
         {
             textTimer = 0;
-            obj.SetActive(false);
+            waveObject.SetActive(false);
             showWave = false;
         }
     }
