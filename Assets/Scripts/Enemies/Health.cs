@@ -30,6 +30,10 @@ public class Health : MonoBehaviour
         {
             Instantiate(scrapPrefab, transform.position, Quaternion.identity);
             gameManager.enemies.Remove(gameObject);
+            if (this.gameObject.CompareTag("Boss"))
+            {
+                gameManager.bossBeaten = true;
+            }
             Destroy(gameObject);
         }
     }

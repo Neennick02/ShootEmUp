@@ -8,6 +8,8 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - Water
+  - Boss
+  - Scrap
   layers:
   - Default
   - TransparentFX

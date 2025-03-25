@@ -48,5 +48,12 @@ public class BulletScript : MonoBehaviour
             Destroy(other.gameObject);
             gameManager.scrapCounter++;
         }
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            screenShake.start = true;
+            gameManager.score += 25;
+            Destroy (gameObject);
+        }
     }
 }
