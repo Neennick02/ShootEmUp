@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         {
             deathScreen.SetActive(true);
             Destroy(playerController);
+            DestroyEnemyTurrets();
             ResetScene();
         }
     }
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
         {
             winScreen.SetActive(true);
             Destroy(playerController);
+            DestroyEnemyTurrets();
             ResetScene();
         }
     }
@@ -201,6 +203,14 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = timeScale;
         paused = isPaused;
+    }
+
+    private void DestroyEnemyTurrets()
+    {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            Destroy(enemies[i].GetComponent<Turret>());
+        }
     }
 
     void EnableGodMode() //geeft heel veel health

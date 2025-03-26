@@ -5,11 +5,23 @@ public class BombScript : MonoBehaviour
     [SerializeField] private int damageAmount = 30;
     private ScreenShake screenShake;
     private GameManager gameManager;
+    [SerializeField] private bool useGravity = true;
+    private Rigidbody rb;
 
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         screenShake = FindFirstObjectByType<ScreenShake>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.useGravity = false;
+        if (useGravity)
+        {
+            rb.AddForce(Physics.gravity * (rb.mass * rb.mass));
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
