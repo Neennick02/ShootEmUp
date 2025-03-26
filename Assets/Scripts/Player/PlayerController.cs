@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 targetAngle;
     private Vector3 startAngle;
     private Vector3 endAngle = new Vector3(0, 0, 0);
+    private GameManager gameManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gameManager = FindFirstObjectByType<GameManager>();
         startAngle = transform.eulerAngles;
     }
 
@@ -106,6 +108,15 @@ public class PlayerController : MonoBehaviour
                 Instantiate(bombPrefab, bombSpawnPoint.position, bulletSpawnPoint.rotation);
                 bombTimer = 0f;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Scrap"))
+        {
+            Destroy(other.gameObject);
+            gameManager.scrapCounter++;
         }
     }
 }
