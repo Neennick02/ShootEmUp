@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72884d882b2037949b298ff71faa9c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 2
+  xSpeed: 1.8
   yRange: 4.95
   upDownTime: 10
 --- !u!1001 &13424707786006037
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c54c7960ce994085833878ab07c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
+  maxHealth: 60
   scrapPrefab: {fileID: 4894546655571899631, guid: 3d991e4016cd73044a2bda3a8b2978b0, type: 3}
   currentHealth: 0
 --- !u!114 &6614848743119247310

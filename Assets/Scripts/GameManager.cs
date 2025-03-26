@@ -26,11 +26,8 @@ public class GameManager : MonoBehaviour
     private PlayerController playerController;
 
     [SerializeField] private GameObject pauseScreen;
-    [Header("Spawn Locations")]
-    [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); //0-3 zijn air spawnpoint, 4-7 zijn water spawns
-    
-    [Header("Enemy Prefabs")]
-    [SerializeField] private List<GameObject> enemiePrefabs = new List<GameObject>(); 
+    [Header("Enemy Waves")]
+    [SerializeField] private List<GameObject> waves = new List<GameObject>();
 
     [Header("Enemies active in scene")]
     [SerializeField] public List<GameObject> enemies;
@@ -101,9 +98,8 @@ public class GameManager : MonoBehaviour
 
     void StartWave()
     {
-        Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[1] , spawnPoints[4].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[2] , spawnPoints[3].position, Quaternion.identity);
+        Instantiate(waves[0], transform.position, Quaternion.identity);
+
     }
 
     void CheckEnemies()
@@ -139,11 +135,7 @@ public class GameManager : MonoBehaviour
         {
             ShowText();
         }
-        //enemise die gespawned worden
-        Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[1], spawnPoints[4].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[2], spawnPoints[0].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[3], spawnPoints[3].position, Quaternion.identity);
+        Instantiate(waves[1], transform.position, Quaternion.identity);
 
 
     }
