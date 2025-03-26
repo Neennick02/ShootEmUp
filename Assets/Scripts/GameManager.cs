@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemies active in scene")]
     [SerializeField] public List<GameObject> enemies;
+    [SerializeField] private List<GameObject> powerups = new List<GameObject>();
     public bool bossBeaten = false; 
 
     private bool gameStarted = true;
