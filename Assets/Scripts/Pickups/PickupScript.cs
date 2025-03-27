@@ -28,7 +28,7 @@ public abstract class PickupScript : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("PlayerProjectile"))
         {
             Activate();
             //pickup sound

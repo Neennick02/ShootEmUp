@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8476937956921455080}
   - component: {fileID: 7140880938031796795}
   - component: {fileID: 6548098234976056676}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Bomb
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -150,4 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 40
+  scoreAmount: 25
   useGravity: 1

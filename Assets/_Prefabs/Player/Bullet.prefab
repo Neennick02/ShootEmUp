@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7757532930577788403}
   - component: {fileID: 1081389518661080539}
   - component: {fileID: 49228483937032347}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Bullet
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: 25
+  scoreAmount: 10
   bulletSpeed: 50
 --- !u!1001 &7338531586994905515
 PrefabInstance:
@@ -148,6 +149,14 @@ PrefabInstance:
     - target: {fileID: 734835554946360549, guid: 03c2c5b6427358545ba92c32e9d42ace, type: 3}
       propertyPath: m_Name
       value: Missle
+      objectReference: {fileID: 0}
+    - target: {fileID: 734835554946360549, guid: 03c2c5b6427358545ba92c32e9d42ace, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 734835554946360549, guid: 03c2c5b6427358545ba92c32e9d42ace, type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
