@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interval: 2
-  startDelay: 5
+  startDelay: 0
   bullet: {fileID: 4078469466164136347, guid: 4695b6aa02f7c2842bd9df9b55a3189e, type: 3}
   bulletSpawnPoint: {fileID: 1451439186784083116}
 --- !u!114 &5564643959906693243

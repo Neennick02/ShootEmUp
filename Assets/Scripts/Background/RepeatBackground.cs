@@ -17,7 +17,6 @@ public class RepeatBackground : MonoBehaviour
         if(transform.position.x <= 0 && !isSpawned)
         {
             target = new Vector3(transform.position.x + offset, transform.position.y, transform.position.z);
-            Debug.Log("spawn");
             Instantiate(waterObject, target, transform.rotation);
             isSpawned = true;
         }

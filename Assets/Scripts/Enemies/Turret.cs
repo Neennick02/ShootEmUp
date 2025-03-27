@@ -7,11 +7,12 @@ public class Turret : MonoBehaviour
 {
     [Header("Config")]  
     [SerializeField] private float interval = 1f;
-    [SerializeField] private float startDelay = 5f;
+    [SerializeField] private float startDelay = 0f;
     [Header("DO NOT TOUCH")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPoint;
     private bool inRange = false;
+    private bool isShooting = false;
     private void Start()
     {
         StartCoroutine(Shoot());
@@ -19,9 +20,11 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.x < 30f)
+        if(transform.position.x < 30f && !isShooting)
         {
             inRange = true;
+            StartCoroutine(Shoot());
+            isShooting = true;
         }
     }
 

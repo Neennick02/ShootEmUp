@@ -4,7 +4,7 @@ public class BulletScript : MonoBehaviour
 {
     Rigidbody rb;
     public int playerDamage = 10;
-    private int scoreAmount = 10;
+    [SerializeField]  private int scoreAmount = 10;
     [SerializeField] private float bulletSpeed = 50f;
     private ScreenShake screenShake;
     private GameManager gameManager;

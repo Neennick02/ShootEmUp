@@ -22,17 +22,6 @@ public class MoveUpDownAndLeft : MonoBehaviour
     private void Update()
     {
         MoveObject();
-        CheckPostion();
-    }
-
-    void CheckPostion()
-    {
-        if(transform.position.x < -40)
-        {
-            gameManager.score -= 20;
-            gameManager.enemies.Remove(gameObject);
-            Destroy(gameObject);
-        }
     }
 
     void MoveObject() // beweegt object van rechts naar links en up en neer

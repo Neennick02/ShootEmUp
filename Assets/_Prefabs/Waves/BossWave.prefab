@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6962056890794927786}
   m_Layer: 0
-  m_Name: Wave2
+  m_Name: BossWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

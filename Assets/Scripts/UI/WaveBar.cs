@@ -6,8 +6,8 @@ public class WaveBar : MonoBehaviour
     private float newWidth = 0;
     [SerializeField] private RectTransform bar;
     
-    private float maxWaves = 4;
-    private float currentWave = 0;
+    public float maxWaves = 4;
+    public float currentWave = 0;
     void Start()
     {
         newWidth = (currentWave / maxWaves) * width;

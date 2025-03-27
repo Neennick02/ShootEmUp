@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         Die();
+        CheckPostion();
     }
 
     public void takeDamage(int amount)
@@ -34,6 +35,16 @@ public class Health : MonoBehaviour
             {
                 gameManager.bossBeaten = true;
             }
+            Destroy(gameObject);
+        }
+    }
+
+    void CheckPostion()
+    {
+        if (transform.position.x < -40)
+        {
+            gameManager.score -= 20;
+            gameManager.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }

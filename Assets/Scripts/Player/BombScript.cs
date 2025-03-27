@@ -3,6 +3,7 @@ using UnityEngine;
 public class BombScript : MonoBehaviour
 {
     [SerializeField] private int damageAmount = 30;
+    [SerializeField] private int scoreAmount = 25;
     private ScreenShake screenShake;
     private GameManager gameManager;
     [SerializeField] private bool useGravity = true;
@@ -39,6 +40,7 @@ public class BombScript : MonoBehaviour
             //explosion prefab
             screenShake.start = true;
             other.gameObject.GetComponent<Health>().takeDamage(damageAmount);
+            gameManager.score += scoreAmount;
             Destroy(gameObject);
         }
 
