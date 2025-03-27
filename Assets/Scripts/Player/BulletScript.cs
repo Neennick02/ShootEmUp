@@ -20,8 +20,16 @@ public class BulletScript : MonoBehaviour
     private void Update()
     {
         Destroy(gameObject, 2f);
+        OutOfBounds();
     }
 
+    private void OutOfBounds()
+    {
+        if(transform.position.x > 36)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeaea98281f0a534fb6375caff6d4090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2
+  rotationSpeed: 13
   target: {fileID: 2346481067603390355}
   rotateAroundCenter: 1
 --- !u!1001 &8464899850814816200
@@ -203,6 +203,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7373705124559163293, guid: 3493c578a02495e45bb473ae573a755a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ba760dbcff2e654ca173f25d12a6582, type: 2}
+    - target: {fileID: -5557397772161099291, guid: 3493c578a02495e45bb473ae573a755a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ba760dbcff2e654ca173f25d12a6582, type: 2}
+    - target: {fileID: -2859109400176981367, guid: 3493c578a02495e45bb473ae573a755a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ba760dbcff2e654ca173f25d12a6582, type: 2}
     - target: {fileID: 919132149155446097, guid: 3493c578a02495e45bb473ae573a755a, type: 3}
       propertyPath: m_Name
       value: Gear

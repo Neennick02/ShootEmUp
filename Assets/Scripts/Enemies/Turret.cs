@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -10,33 +11,35 @@ public class Turret : MonoBehaviour
     [Header("DO NOT TOUCH")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPoint;
-    private float timer = 0f;
+    private bool inRange = false;
     private void Start()
     {
         StartCoroutine(Shoot());
     }
 
+    private void Update()
+    {
+        if(transform.position.x < 30f)
+        {
+            inRange = true;
+        }
+    }
 
 
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(startDelay);
-        while (true)
+        if (inRange)
         {
-            Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            yield return new WaitForSeconds(interval);
+            yield return new WaitForSeconds(startDelay);
+            while (true)
+            {
+                Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                yield return new WaitForSeconds(interval);
+            }
         }
     }
-
-    void ShootTurret()
-    {
-        timer += Time.deltaTime;
         
-        if(timer > interval)
-        {
-            Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            timer = 0f;
-        }
-    }
+
+
 
 }

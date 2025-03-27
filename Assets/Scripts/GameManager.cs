@@ -5,17 +5,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool godMode = false;
+    [SerializeField] private bool startBossWave = false;
     public int score = 0;
-    [SerializeField] private TextMeshProUGUI scoreText;
-
     public int scrapCounter = 0;
-    [SerializeField] private TextMeshProUGUI scrapText;
-
     private bool isAlive = true;
     private float textTimer = 0f;
-    [Header("UI elements")]
-    
 
+    [Header("UI elements")]
+
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scrapText;
     [SerializeField] private GameObject waveObject;
     [SerializeField] private GameObject bossWaveObject;
     [SerializeField] private TextMeshProUGUI waveText;
@@ -26,21 +25,19 @@ public class GameManager : MonoBehaviour
     private PlayerController playerController;
 
     [SerializeField] private GameObject pauseScreen;
-    [Header("Spawn Locations")]
-    [SerializeField] private List<Transform> spawnPoints = new List<Transform>(); //0-3 zijn air spawnpoint, 4-7 zijn water spawns
-    
-    [Header("Enemy Prefabs")]
-    [SerializeField] private List<GameObject> enemiePrefabs = new List<GameObject>(); 
+    [Header("Enemy Waves")]
+    [SerializeField] private List<GameObject> waves = new List<GameObject>();
+    private int currentWave = 1;
 
     [Header("Enemies active in scene")]
     [SerializeField] public List<GameObject> enemies;
+    [SerializeField] private List<GameObject> powerups = new List<GameObject>();
+    
     public bool bossBeaten = false; 
 
     private bool gameStarted = true;
     private bool paused = false;
 
-
-    private int currentWave = 1;
     private bool showWave = true;
     
 
@@ -53,7 +50,7 @@ public class GameManager : MonoBehaviour
         playerController = FindFirstObjectByType<PlayerController>();
         playerHeath = FindFirstObjectByType<PlayerHealth>();    
         DisplayWaveText(true, false);
-        StartWave();
+        StartWave(0);
 
     }
 
@@ -98,11 +95,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void StartWave()
+    void StartWave(int waveNumber)
     {
-        Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[1] , spawnPoints[4].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[2] , spawnPoints[3].position, Quaternion.identity);
+        Instantiate(waves[0], transform.position, Quaternion.identity);
     }
 
     void CheckEnemies()
@@ -138,11 +133,7 @@ public class GameManager : MonoBehaviour
         {
             ShowText();
         }
-        //enemise die gespawned worden
-        Instantiate(enemiePrefabs[0], spawnPoints[5].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[1], spawnPoints[4].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[2], spawnPoints[0].position, Quaternion.identity);
-        Instantiate(enemiePrefabs[3], spawnPoints[3].position, Quaternion.identity);
+        StartWave(1);
 
 
     }
@@ -219,6 +210,11 @@ public class GameManager : MonoBehaviour
         {
             playerHeath.maxHealth = 10000;
             playerHeath.SetHealth(10000);
+        }
+        if (startBossWave)
+        {
+            enemies.Clear();
+            BossWave();
         }
     }
 }
