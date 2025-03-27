@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BalloonEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3622710641414202987, guid: e03f9e00b345e4e4f8b6095cb8092603, type: 3}
+      propertyPath: xSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5553795655934224106, guid: e03f9e00b345e4e4f8b6095cb8092603, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.8
@@ -230,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5778603525891141883, guid: f1f29e4e4f9e67b42a7e2939ae9e901d, type: 3}
       propertyPath: xSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -252,7 +256,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 951793290603043202, guid: dae590afa7bdfea43b2ca6f560eb48c0, type: 3}
       propertyPath: xSpeed
-      value: 2.3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1317021063267638707, guid: dae590afa7bdfea43b2ca6f560eb48c0, type: 3}
       propertyPath: m_Name
@@ -366,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2461241153480669476, guid: 961a00724d440904a965f4a8c709bc5e, type: 3}
       propertyPath: xSpeed
-      value: 1.3
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
