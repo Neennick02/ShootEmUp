@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public int scrapCounter = 0;
     private bool isAlive = true;
     private float textTimer = 0f;
-
+    [Header("Amount of score before powerups spawns")]
+    [SerializeField] private float scoreThreshold;
     [Header("UI elements")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scrapText;
@@ -47,10 +48,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
-
         NextWave();
-
+        SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
         
@@ -122,6 +121,27 @@ public class GameManager : MonoBehaviour
             waveObject.SetActive(false);
             showWave = false;
         }
+    }
+
+    void SpawnPowerUp()
+    {
+        if(score > scoreThreshold)
+        {
+            RandomPowerup();
+            scoreThreshold = scoreThreshold + 100;
+        }
+    }
+
+    void RandomPowerup()
+    {
+        float spawnX = Random.Range(-25, 30);
+        float spawnY = 53f;
+        float spawnZ = 0f;
+        Vector3 spawnPos = new Vector3(spawnX, spawnY, spawnZ);
+            
+
+        int powerupIndex = (int)Random.Range(0, powerups.Count);
+        Instantiate(powerups[powerupIndex], spawnPos, Quaternion.identity);
     }
 
     void EndGame()

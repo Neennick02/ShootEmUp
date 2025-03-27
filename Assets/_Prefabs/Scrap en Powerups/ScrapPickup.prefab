@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 2689804870785080221}
   - component: {fileID: 1288008303260591969}
   - component: {fileID: 4760941380560660314}
-  - component: {fileID: 4828204906536635249}
+  - component: {fileID: 5428175135126026729}
   m_Layer: 9
-  m_Name: HealthPickup
+  m_Name: ScrapPickup
   m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 38bb2e16ccccfd044b7ffc308f68db5a, type: 2}
+  - {fileID: 2100000, guid: 742580ef4cc2adb4dbb846cbf3147e0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   rotationSpeed: 5
   target: {fileID: 7391005966511665560}
   rotateAroundCenter: 1
---- !u!114 &4828204906536635249
+--- !u!114 &5428175135126026729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7862785300091305682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4beb54f3a22194d8be09fd1259034c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f087b828790a6f43bc0552dc190b888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrapAmount: 5
