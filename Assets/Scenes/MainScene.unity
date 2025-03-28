@@ -4387,6 +4387,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 794030098}
+    - target: {fileID: 5706642933109610365, guid: 221174c8b2416214cad110ae6dec4180, type: 3}
+      propertyPath: maxHealth
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 6788434697920479025, guid: 221174c8b2416214cad110ae6dec4180, type: 3}
       propertyPath: bombFireRate
       value: 1
