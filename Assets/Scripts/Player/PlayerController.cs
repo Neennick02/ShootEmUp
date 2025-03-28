@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     //variables voor verschillende fire rates
-    [SerializeField] private float normalBulletFireRate = 1f;
+    [SerializeField] private float normalBulletFireRate = 0.7f;
     [SerializeField] private float normalBombFireRate = 1f;
     private float currentBulletRate;
     private float currentBombRate;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 endAngle = new Vector3(0, 0, 0);
     private GameManager gameManager;
 
-    public float bulletDamage = 10f;
+    public float bulletDamage = 15f;
     public float bombDamage = 30f;
     private bool damageUp = false;
     private float damageTimer = 0f;
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
             damageTimer += Time.deltaTime;
             if(damageTimer > 10)
             {
-                bulletDamage = 10f;
+                bulletDamage = 15f;
                 bombDamage = 30f;
                 damageTimer = 0f;
                 damageUp = false;

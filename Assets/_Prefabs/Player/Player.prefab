@@ -87,6 +87,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5792239935083737496, guid: 0501ddd438d01c049a0d1b7223e01d96, type: 3}
   bombPrefab: {fileID: 1436336621381295476, guid: 3900cf4f419f1ec4f9eee1f8fca9d4fe, type: 3}
   targetAngle: {x: 0, y: 0, z: -40}
+  bulletDamage: 10
+  bombDamage: 30
 --- !u!54 &8776674603300185505
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -284,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 150
   healthBar: {fileID: 0}
 --- !u!65 &6812177741963899486
 BoxCollider:
