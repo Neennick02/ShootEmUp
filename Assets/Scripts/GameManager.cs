@@ -84,10 +84,10 @@ public class GameManager : MonoBehaviour
             {
                 if (!spawned)
                 {
-                    DisplayWaveText();
                     showWave = true;
-                    StartWave((int)waveBar.currentWave);
                     waveBar.NextWave();
+                    DisplayWaveText();
+                    StartWave((int)waveBar.currentWave);
                     spawned = true;
                 }
             }

@@ -7,7 +7,7 @@ public class WaveBar : MonoBehaviour
     [SerializeField] private RectTransform bar;
     
     public float maxWaves = 4;
-    public float currentWave = 0;
+    public float currentWave = 1;
     void Start()
     {
         newWidth = (currentWave / maxWaves) * width;
