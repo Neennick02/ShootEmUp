@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    [Header("GodMode Options")]
     [SerializeField] private bool godMode = false;
+    [SerializeField] private float speedupAmount = 2f;
+    [SerializeField] private bool unlimitedFire = false;
     public int score = 0;
     public int scrapCounter = 0;
     private bool isAlive = true;
@@ -91,6 +94,10 @@ public class GameManager : MonoBehaviour
                     spawned = true;
                 }
             }
+        }
+        else
+        {
+            EndGame();
         }
        
     }
@@ -190,8 +197,22 @@ public class GameManager : MonoBehaviour
     {
         if (godMode)
         {
-            playerHealth.maxHealth = 1000;
-            playerHealth.SetHealth(10000);
+            playerHealth.maxHealth = 9999;
+            playerHealth.SetHealth(9999);
+            if (Input.GetKey(KeyCode.Backspace))
+            {
+                Debug.Log("speed up");
+                Time.timeScale = speedupAmount;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+            if (unlimitedFire)
+            {
+                player.GetComponent<PlayerController>().currentBombRate = 0.1f;
+                player.GetComponent<PlayerController>().currentBulletRate = 0.1f;
+            }
         }
     }
 

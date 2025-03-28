@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     //variables voor verschillende fire rates
     [SerializeField] private float normalBulletFireRate = 0.7f;
     [SerializeField] private float normalBombFireRate = 1f;
-    private float currentBulletRate;
-    private float currentBombRate;
+    public float currentBulletRate;
+    public float currentBombRate;
     private float newBulletRate;
     private float newBombRate;
 
