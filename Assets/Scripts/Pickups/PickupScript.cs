@@ -5,6 +5,8 @@ public abstract class PickupScript : MonoBehaviour
     protected GameManager gameManager;
     protected PlayerController playerController;
     protected PlayerHealth playerHealth;
+    protected BulletScript bulletScript;
+    protected BombScript bombScript;
 
     private float timeAlive = 10f;
     protected bool pickedUp = false;
@@ -13,6 +15,8 @@ public abstract class PickupScript : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         playerController = FindFirstObjectByType<PlayerController>();
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        bulletScript = FindFirstObjectByType<BulletScript>();
+        bombScript = FindFirstObjectByType<BombScript>();
     }
 
     public virtual void Activate()

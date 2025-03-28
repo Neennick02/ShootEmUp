@@ -8,12 +8,18 @@ public class BombScript : MonoBehaviour
     private GameManager gameManager;
     [SerializeField] private bool useGravity = true;
     private Rigidbody rb;
-
+    private float powerupTimer = 0f;
+    private bool timerStarted = false;
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         screenShake = FindFirstObjectByType<ScreenShake>();
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        CheckForPowerup();
     }
 
     private void FixedUpdate()
@@ -56,6 +62,27 @@ public class BombScript : MonoBehaviour
             screenShake.start = true;
             gameManager.score += 25;
             Destroy(gameObject);
+        }
+    }
+
+    public void DamageUp()
+    {
+        timerStarted = true;
+        damageAmount = damageAmount * 2;
+    }
+
+    void CheckForPowerup()
+    {
+        if (timerStarted)
+        {
+            
+            powerupTimer += Time.deltaTime;
+            if(powerupTimer > 5)
+            {
+                damageAmount = 30;
+                powerupTimer = 0;
+                timerStarted = false;
+            }
         }
     }
 }

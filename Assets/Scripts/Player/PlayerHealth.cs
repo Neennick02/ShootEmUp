@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int health, maxHealth;
 
-    [SerializeField] private HealthBarUI healthBar;
+    [SerializeField] private HealthBar healthBar;
 
     private void Start()
     {
@@ -17,6 +17,6 @@ public class PlayerHealth : MonoBehaviour
         health += healthChange;
         health = Mathf.Clamp(health, 0, maxHealth);
 
-        healthBar.SetHealth(health);
+        healthBar.SetHealth((int)health);
     }
 }

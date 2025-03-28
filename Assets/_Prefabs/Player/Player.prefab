@@ -80,8 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 125
-  bulletFireRate: 0.7
-  bombFireRate: 0.66
+  normalBulletFireRate: 1
+  normalBombFireRate: 1
   bulletSpawnPoint: {fileID: 2229305367723942009}
   bombSpawnPoint: {fileID: 1040275179825730623}
   bulletPrefab: {fileID: 5792239935083737496, guid: 0501ddd438d01c049a0d1b7223e01d96, type: 3}
@@ -305,5 +305,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.9042435, y: 20.02296, z: 14.726685}
-  m_Center: {x: -0.18363339, y: -0.836606, z: 3.8773766}
+  m_Size: {x: 6.9042435, y: 14.849543, z: 12.924951}
+  m_Center: {x: -0.18363339, y: -0.8364007, z: 4.778243}

@@ -1,14 +1,17 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BulletScript : MonoBehaviour
 {
     Rigidbody rb;
-    public int playerDamage = 10;
+    public int damageAmount = 10;
     [SerializeField]  private int scoreAmount = 10;
     [SerializeField] private float bulletSpeed = 50f;
     private ScreenShake screenShake;
     private GameManager gameManager;
 
+    bool timerStarted = false;
+    float powerupTimer = 0;
     private void Start()
     {
         screenShake = FindFirstObjectByType<ScreenShake>();
@@ -19,6 +22,7 @@ public class BulletScript : MonoBehaviour
 
     private void Update()
     {
+        CheckForPowerup();
         Destroy(gameObject, 2f);
         OutOfBounds();
     }
@@ -44,7 +48,7 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //damage Enemy 
-            other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            other.gameObject.GetComponent<Health>().takeDamage(damageAmount);
             
             screenShake.start = true;
             gameManager.score += scoreAmount;
@@ -58,10 +62,31 @@ public class BulletScript : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Boss"))
         {
-            other.gameObject.GetComponent<Health>().takeDamage(playerDamage);
+            other.gameObject.GetComponent<Health>().takeDamage(damageAmount);
             screenShake.start = true;
             gameManager.score += 25;
             Destroy (gameObject);
+        }
+    }
+
+    public void DamageUp()
+    {
+        timerStarted = true;
+        damageAmount = damageAmount * 2;
+    }
+
+    void CheckForPowerup()
+    {
+        if (timerStarted)
+        {
+
+            powerupTimer += Time.deltaTime;
+            if (powerupTimer > 5)
+            {
+                damageAmount = 10;
+                powerupTimer = 0;
+                timerStarted = false;
+            }
         }
     }
 }
