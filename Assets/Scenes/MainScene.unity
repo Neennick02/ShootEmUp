@@ -3420,6 +3420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   godMode: 0
+  speedupAmount: 2
+  unlimitedFire: 1
   score: 0
   scrapCounter: 0
   scoreThreshold: 100

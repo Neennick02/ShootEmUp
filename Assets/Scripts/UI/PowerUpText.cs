@@ -27,6 +27,7 @@ public class PowerUpText : MonoBehaviour
                 damageUp.SetActive(false);
                 fireRateUp.SetActive(false);
                 scrapUp.SetActive(false);
+                textTimer = 0;
                 showText = false;
             }
         }

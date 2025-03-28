@@ -16,7 +16,7 @@ public class EnemyBullet : MonoBehaviour
 
     void Update()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 4f);
     }
 
     private void OnCollisionEnter(Collision collision)

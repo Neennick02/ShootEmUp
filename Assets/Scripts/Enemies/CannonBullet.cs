@@ -15,6 +15,7 @@ public class CannonBullet : MonoBehaviour
 
     void Update()
     {
+        Destroy(gameObject, 4f);
     }
     private void OnCollisionEnter(Collision other)
     {
