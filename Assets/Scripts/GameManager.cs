@@ -201,7 +201,6 @@ public class GameManager : MonoBehaviour
             playerHealth.SetHealth(9999);
             if (Input.GetKey(KeyCode.Backspace))
             {
-                Debug.Log("speed up");
                 Time.timeScale = speedupAmount;
             }
             else

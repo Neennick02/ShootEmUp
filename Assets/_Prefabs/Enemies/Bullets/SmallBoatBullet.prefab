@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 15
   damageAmount: 10
+  randomRange: 5
 --- !u!1001 &6989091033606791349
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -104,10 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ad2b40877e679429a289cd11877c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSpeed: 2
+  xSpeed: 4
   yRange: 1.5
   upDownTime: 8
-  target: {x: 15, y: 0, z: 0}
+  stopTarget: {x: 20, y: 0, z: 0}
+  slowDownTime: 10
 --- !u!1001 &3245739747607518863
 PrefabInstance:
   m_ObjectHideFlags: 0
