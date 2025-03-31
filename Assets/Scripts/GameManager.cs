@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     void DisplayWaveText() //geeft de wave tekst weer
     {
         waveText.text = "Wave " + waveBar.currentWave;
-        if (waveBar.currentWave == waveBar.maxWaves )
+        if (waveBar.currentWave == waveBar.maxWaves - 1)
         {
             waveText.text = "Boss incoming!";
         }

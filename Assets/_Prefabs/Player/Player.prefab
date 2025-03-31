@@ -80,8 +80,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 125
-  normalBulletFireRate: 1
+  normalBulletFireRate: 0.2
   normalBombFireRate: 1
+  currentBulletRate: 0
+  currentBombRate: 0
   bulletSpawnPoint: {fileID: 2229305367723942009}
   bombSpawnPoint: {fileID: 1040275179825730623}
   bulletPrefab: {fileID: 5792239935083737496, guid: 0501ddd438d01c049a0d1b7223e01d96, type: 3}

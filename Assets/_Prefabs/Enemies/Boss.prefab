@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6247038584977340968}
-  - component: {fileID: 375649011340949339}
   - component: {fileID: 8851816471190764068}
+  - component: {fileID: 447364592583118608}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -65,21 +65,6 @@ Transform:
   - {fileID: 3062894594728294756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &375649011340949339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736901984651702242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72884d882b2037949b298ff71faa9c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xSpeed: 3
-  yRange: 3
-  upDownTime: 6
 --- !u!54 &8851816471190764068
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -107,6 +92,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &447364592583118608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736901984651702242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ad2b40877e679429a289cd11877c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xSpeed: 2
+  yRange: 1.5
+  upDownTime: 8
+  target: {x: 15, y: 0, z: 0}
 --- !u!1001 &3245739747607518863
 PrefabInstance:
   m_ObjectHideFlags: 0

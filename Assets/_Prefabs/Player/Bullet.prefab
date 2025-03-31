@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreAmount: 10
-  bulletSpeed: 50
+  bulletSpeed: 70
 --- !u!1001 &5776844447653492908
 PrefabInstance:
   m_ObjectHideFlags: 0
