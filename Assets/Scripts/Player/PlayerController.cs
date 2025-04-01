@@ -8,10 +8,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     //variables voor verschillende fire rates
-    [SerializeField] private float normalBulletFireRate = 1f;
+    [SerializeField] private float normalBulletFireRate = 0.7f;
     [SerializeField] private float normalBombFireRate = 1f;
-    private float currentBulletRate;
-    private float currentBombRate;
+    public float currentBulletRate;
+    public float currentBombRate;
     private float newBulletRate;
     private float newBombRate;
 
@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 startAngle;
     private Vector3 endAngle = new Vector3(0, 0, 0);
     private GameManager gameManager;
+
+    public float bulletDamage = 15f;
+    public float bombDamage = 30f;
+    private bool damageUp = false;
+    private float damageTimer = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -115,6 +120,13 @@ public class PlayerController : MonoBehaviour
         fireRateUpTimer = 0f;
     }
 
+    public void DamageUp()
+    {
+        damageUp = true;
+        bulletDamage = bulletDamage * 2;
+        bombDamage = bombDamage * 2;
+    }
+
     void CheckForPowerUp()
     {
         if (startFirerateUpTimer)
@@ -123,12 +135,24 @@ public class PlayerController : MonoBehaviour
             currentBombRate = newBombRate;
         }
         fireRateUpTimer += Time.deltaTime;
-        if(fireRateUpTimer > 5)
+        if(fireRateUpTimer > 10)
         {
             currentBombRate = normalBombFireRate;
             currentBulletRate = normalBulletFireRate;
             fireRateUpTimer = 0;
             startFirerateUpTimer = false;
+        }
+
+        if (damageUp)
+        {
+            damageTimer += Time.deltaTime;
+            if(damageTimer > 10)
+            {
+                bulletDamage = 15f;
+                bombDamage = 30f;
+                damageTimer = 0f;
+                damageUp = false;
+            }
         }
     }
 

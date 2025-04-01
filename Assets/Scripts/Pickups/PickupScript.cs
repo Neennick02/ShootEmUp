@@ -7,6 +7,7 @@ public abstract class PickupScript : MonoBehaviour
     protected PlayerHealth playerHealth;
     protected BulletScript bulletScript;
     protected BombScript bombScript;
+    protected PowerUpText powerUpText;
 
     private float timeAlive = 10f;
     protected bool pickedUp = false;
@@ -17,6 +18,7 @@ public abstract class PickupScript : MonoBehaviour
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         bulletScript = FindFirstObjectByType<BulletScript>();
         bombScript = FindFirstObjectByType<BombScript>();
+        powerUpText = FindFirstObjectByType<PowerUpText>();
     }
 
     public virtual void Activate()

@@ -6,5 +6,6 @@ public class ScrapUp : PickupScript
     public override void Activate()
     {
         gameManager.scrapCounter += scrapAmount;
+        powerUpText.ShowText(false, false, false, true);
     }
 }

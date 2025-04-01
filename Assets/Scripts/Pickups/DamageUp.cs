@@ -1,11 +1,12 @@
+using UnityEditor;
 using UnityEngine;
 
 public class DamageUp : PickupScript
 {
     public override void Activate()
     {
-        bombScript.DamageUp();
-        bulletScript.DamageUp();
+        playerController.DamageUp();
+        powerUpText.ShowText(false, true, false, false);
     }
 
 }

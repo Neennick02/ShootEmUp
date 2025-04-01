@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 50f;
+    [Header("Change amount of range for random speed")]
+    [SerializeField] float randomRange = 5;
     private ScreenShake screenShake;
     Rigidbody rb;
 
@@ -11,12 +13,18 @@ public class EnemyBullet : MonoBehaviour
     {
         screenShake = FindFirstObjectByType<ScreenShake>();
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = -transform.right * bulletSpeed;
+        rb.linearVelocity = -transform.right * RandomizeBullet();
     }
 
     void Update()
     {
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 4f);
+    }
+
+    float RandomizeBullet()
+    {
+        float randomSpeed = Random.Range(bulletSpeed - bulletSpeed / randomRange, bulletSpeed + bulletSpeed / randomRange);
+        return randomSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
