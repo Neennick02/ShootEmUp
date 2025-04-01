@@ -45,9 +45,18 @@ public class BossScript : MonoBehaviour
         //beweeg naar links
             if (stopped)
             {
-            Debug.Log("dsa0");
-            //code die er voor zorgt dat speed lerpt naar 0
-            }
+            // Increase Lerp time
+            currentLerpTime += Time.deltaTime;
+            float t = currentLerpTime / lerpTime;
+            t = Mathf.Clamp01(t); // Ensure t stays between 0 and 1
+
+            // Lerp the speed from xSpeed to 0
+            float currentSpeed = Mathf.Lerp(xSpeed, 0, t);
+
+            // Move the boss using the lerped speed
+            float moveX = -currentSpeed * Time.deltaTime;
+            transform.Translate(moveX, 0, 0);
+        }
             else
             {
                 float moveX = -xSpeed * Time.deltaTime;

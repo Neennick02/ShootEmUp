@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject pauseScreen;
-
+    [SerializeField] private GameObject shopScreen;
+    public bool openShop = false;
     [Header("Enemy Waves")]
     [SerializeField] private List<GameObject> waves = new List<GameObject>();
     private WaveBar waveBar;
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        
+        OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
@@ -149,6 +150,16 @@ public class GameManager : MonoBehaviour
 
         int powerupIndex = (int)Random.Range(0, powerups.Count);
         Instantiate(powerups[powerupIndex], spawnPos, Quaternion.identity);
+    }
+
+    void OpenShop()
+    {
+        if(waveBar.currentWave  == 2 || waveBar.currentWave == 4)
+        {
+            //openShop = true;
+            shopScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     void EndGame()
