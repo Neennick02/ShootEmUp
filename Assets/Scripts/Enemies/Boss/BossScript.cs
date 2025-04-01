@@ -3,7 +3,6 @@ using UnityEngine;
 public class BossScript : MonoBehaviour
 {
     [SerializeField] private float xSpeed = 5f;
-    private float slowSpeed;
     [SerializeField] private float yRange = 5f;
     [SerializeField] private float upDownTime = 5f;
 
@@ -13,7 +12,7 @@ public class BossScript : MonoBehaviour
     
 
     private Vector3 startPos;
-    private bool stopped = false;
+    public bool stopped = false;
 
     Rigidbody rb;
     float timer = 0f;
@@ -23,7 +22,6 @@ public class BossScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
-        slowSpeed = xSpeed / 2;
     }
 
     private void Update()
