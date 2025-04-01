@@ -7,6 +7,7 @@ public class BombScript : MonoBehaviour
     private ScreenShake screenShake;
     private GameManager gameManager;
     [SerializeField] private bool useGravity = true;
+    [SerializeField] private GameObject explosion;
     private Rigidbody rb;
     private void Start()
     {
@@ -40,6 +41,7 @@ public class BombScript : MonoBehaviour
             //explosion prefab
             screenShake.start = true;
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             gameManager.score += scoreAmount;
             Destroy(gameObject);
         }
@@ -53,6 +55,7 @@ public class BombScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += 25;
             Destroy(gameObject);

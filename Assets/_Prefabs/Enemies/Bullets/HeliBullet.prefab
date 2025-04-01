@@ -150,4 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
+  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  randomRange: 5
   damageAmount: 2

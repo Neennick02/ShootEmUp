@@ -115,37 +115,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3062894594728294756}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 200.167}
---- !u!1 &6631933273856076679
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5264438203765903702}
-  m_Layer: 0
-  m_Name: Homing (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5264438203765903702
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6631933273856076679}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.6961843, y: 0.12380406, z: 0.6961843, w: -0.12380406}
-  m_LocalPosition: {x: -0.044765472, y: -3.55, z: 3.64}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3062894594728294756}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 200.167}
 --- !u!1 &6736901984651702242
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +125,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6247038584977340968}
   - component: {fileID: 3875428857413533466}
-  - component: {fileID: 7740815259718226461}
   - component: {fileID: 4473760602307327092}
   m_Layer: 0
   m_Name: Boss
@@ -209,21 +177,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &7740815259718226461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736901984651702242}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3a6e541e5071943b216a3e3f7a4910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 7917027187483783207}
-  speed: 5
-  rotateSpeed: 0.3
 --- !u!114 &4473760602307327092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +194,7 @@ MonoBehaviour:
   upDownTime: 8
   stopTarget: {x: 20, y: 0, z: 0}
   lerpTime: 3
+  stopped: 0
 --- !u!1001 &3245739747607518863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,9 +264,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7917027187483783207}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5264438203765903702}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
       insertIndex: -1
@@ -323,6 +274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2999971971318993640}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2897769279328584040}
   m_SourcePrefab: {fileID: 100100000, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
 --- !u!1 &2434836388211729374 stripped
 GameObject:
@@ -378,10 +332,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95725ce0c8b1c4e4cb7b5d09595950ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homingFireRate: 2
   interval: 1
   startDelay: 0
   bullet: {fileID: 8347674606488146748, guid: e1f154a094807434082b1327ef1586cf, type: 3}
   bulletSpawnPoint: {fileID: 4528921180093557781}
+--- !u!114 &2897769279328584040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2434836388211729374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0bba46bfd1de9429e7121bd1efe5dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 2
+  bullet: {fileID: 2511607972205027362, guid: bd295127f277ec84babdefad649859f1, type: 3}
+  firePoint: {fileID: 7917027187483783207}
 --- !u!4 &3062894594728294756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}

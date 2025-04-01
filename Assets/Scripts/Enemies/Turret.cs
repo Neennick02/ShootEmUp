@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [Header("Config")]  
+    [Header("Config")]
     [SerializeField] private float interval = 1f;
     [SerializeField] private float startDelay = 0f;
     [Header("DO NOT TOUCH")]
@@ -41,8 +41,4 @@ public class Turret : MonoBehaviour
             }
         }
     }
-        
-
-
-
 }
