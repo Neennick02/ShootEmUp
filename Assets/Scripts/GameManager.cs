@@ -156,9 +156,17 @@ public class GameManager : MonoBehaviour
     {
         if(waveBar.currentWave  == 2 || waveBar.currentWave == 4)
         {
-            //openShop = true;
-            shopScreen.SetActive(true);
-            Time.timeScale = 0f;
+            openShop = true;
+        }
+        if (openShop)
+        {
+            PauseAndUnPause(0f, true);
+           // shopScreen.SetActive(true);
+        }
+        else if(!openShop)
+        {
+            PauseAndUnPause(1f, false);
+            shopScreen.SetActive(false);
         }
     }
 
@@ -190,7 +198,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void PauseAndUnPause(float timeScale, bool isPaused) //deel van pauseGame method
+    public void PauseAndUnPause(float timeScale, bool isPaused) //deel van pauseGame method
     {
         Time.timeScale = timeScale;
         paused = isPaused;

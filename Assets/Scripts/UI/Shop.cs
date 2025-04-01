@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject healthButton, speedButton, cannonButton;
-    [SerializeField] private GameObject shop;
     private PlayerHealth playerHealth;
     private GameManager gameManager;
     private PlayerController playerController;
@@ -47,7 +46,6 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
-        shop.SetActive(false);
-        Time.timeScale = 1.0f;
+        gameManager.openShop = false;
     }
 }
