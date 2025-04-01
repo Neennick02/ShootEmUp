@@ -7,6 +7,7 @@ public class CannonBullet : MonoBehaviour
     [SerializeField] private int damageAmount = 10;
     [Header("Change amount of range for random speed")]
     [SerializeField] private int randomRange = 5;
+    [SerializeField] private GameObject explosion;
     private ScreenShake screenShake;
     void Start()
     {
@@ -39,6 +40,7 @@ public class CannonBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             screenShake.start = true;
+            Instantiate(explosion, transform.position, Quaternion.identity);    
             other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
         }

@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 7715894797856374546}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2931137, y: 0.7188678, z: 0.08}
+  m_LocalPosition: {x: 1.2931137, y: 0.7188678, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6968334627156373424}
   - component: {fileID: 7456140420939434485}
+  - component: {fileID: 5553969527682813975}
   m_Layer: 6
   m_Name: BigBoat
   m_TagString: Enemy
@@ -134,6 +135,33 @@ MonoBehaviour:
   xSpeed: 5
   yRange: 0.2
   upDownTime: 5
+--- !u!54 &5553969527682813975
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029007427448004426}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1001 &2551923761119062910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +213,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 11abbba4c622c6e46af6d8dbcece538c, type: 3}
       propertyPath: m_Name
       value: boat shmup
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11abbba4c622c6e46af6d8dbcece538c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -260,5 +292,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7192763, y: 2.5097795, z: 6.198728}
-  m_Center: {x: -0.11619091, y: 1.4927819, z: 1.92171}
+  m_Size: {x: 1.7192763, y: 2.8791656, z: 6.198728}
+  m_Center: {x: -0.11619091, y: 1.677475, z: 1.92171}

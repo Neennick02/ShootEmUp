@@ -41,4 +41,9 @@ public abstract class PickupScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        
+    }
 }
