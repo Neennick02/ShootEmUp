@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Vector3 currentPosition;
-    [SerializeField] float movementSpeed = 50f;
+    [SerializeField] public float movementSpeed = 50f;
     Rigidbody rb;
 
     //variables voor verschillende fire rates
