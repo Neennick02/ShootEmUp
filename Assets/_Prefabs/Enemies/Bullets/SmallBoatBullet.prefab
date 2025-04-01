@@ -153,6 +153,7 @@ MonoBehaviour:
   bulletSpeed: 15
   damageAmount: 10
   randomRange: 5
+  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
 --- !u!1001 &6989091033606791349
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5360720686265221550}
+  - component: {fileID: 3385690238457729705}
   m_Layer: 0
   m_Name: Vfx_Explosion
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -227.6, y: -0.16, z: -228.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2210540773549779285}
   - {fileID: 6947091543699733173}
@@ -35,6 +36,23 @@ Transform:
   - {fileID: 3120986846834423463}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3385690238457729705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038384030417477648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05fff84929534347ad788869ddc4c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundArray:
+  - {fileID: 8300000, guid: 21f1db0a0ad998346b8055705ab75046, type: 3}
+  - {fileID: 8300000, guid: 78f0f663c4c70004da8e290bb75fde39, type: 3}
+  - {fileID: 8300000, guid: fc6dcb18f5664924daf2ded1334eab5f, type: 3}
+  - {fileID: 8300000, guid: 09e4d040555613b439597f0c72a99a1e, type: 3}
 --- !u!1 &1361407403302759165
 GameObject:
   m_ObjectHideFlags: 0

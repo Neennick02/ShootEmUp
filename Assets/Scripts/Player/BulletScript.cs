@@ -5,6 +5,7 @@ public class BulletScript : MonoBehaviour
 {
     Rigidbody rb;
     private PlayerController playerController;
+    [SerializeField] private GameObject explosion;
     [SerializeField]  private int scoreAmount = 10;
     [SerializeField] private float bulletSpeed = 50f;
     private ScreenShake screenShake;
@@ -47,7 +48,7 @@ public class BulletScript : MonoBehaviour
         {
             //damage Enemy 
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bulletDamage);
-            
+            Instantiate(explosion, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += scoreAmount;
             Destroy(gameObject);
@@ -61,6 +62,7 @@ public class BulletScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bulletDamage);
+            Instantiate(explosion, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += 25;
             Destroy (gameObject);

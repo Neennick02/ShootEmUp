@@ -56,11 +56,12 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        OpenShop();
+        //OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
         PauseGame();
+        Debug.Log(Time.timeScale);
     }
     
 
