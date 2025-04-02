@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private GameObject healthButton, speedButton, cannonButton;
+    [SerializeField] private GameObject healthButton, speedButton, cannonButton, exit;
     private PlayerHealth playerHealth;
     private GameManager gameManager;
     private PlayerController playerController;
@@ -21,6 +21,7 @@ public class Shop : MonoBehaviour
             gameManager.scrapCounter -= 5;
             playerHealth.maxHealth = 160;
             healthButton.SetActive(false);
+            gameManager.CloseShop();
         }
     }
 
@@ -31,6 +32,7 @@ public class Shop : MonoBehaviour
             gameManager.scrapCounter -= 5;
             playerController.movementSpeed = playerController.movementSpeed * 1.3f;
             speedButton.SetActive(false);
+            gameManager.CloseShop();
         }
     }
 
@@ -40,12 +42,8 @@ public class Shop : MonoBehaviour
         {
             gameManager.scrapCounter -= 5;
             cannonButton.SetActive(false);
+            gameManager.CloseShop();
             //wordt later toegevoegd
         }
-    }
-
-    public void CloseShop()
-    {
-        gameManager.openShop = false;
     }
 }
