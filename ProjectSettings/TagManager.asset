@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - Scrap
   - Powerup
+  - Homing bullet
+  - HomingBullet
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - PowerUp
   - Player
   - Collision
-  - 
+  - HomingBullet
   - 
   - 
   - 
