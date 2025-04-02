@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject pauseScreen;
-
+    [SerializeField] private GameObject shopScreen;
+    public bool openShop = false;
     [Header("Enemy Waves")]
     [SerializeField] private List<GameObject> waves = new List<GameObject>();
     private WaveBar waveBar;
@@ -55,11 +56,12 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        
+        //OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
         PauseGame();
+        Debug.Log(Time.timeScale);
     }
     
 
@@ -151,6 +153,24 @@ public class GameManager : MonoBehaviour
         Instantiate(powerups[powerupIndex], spawnPos, Quaternion.identity);
     }
 
+    void OpenShop()
+    {
+        if(waveBar.currentWave  == 2 || waveBar.currentWave == 4)
+        {
+            openShop = true;
+        }
+        if (openShop)
+        {
+            PauseAndUnPause(0f, true);
+            shopScreen.SetActive(true);
+        }
+        else if(!openShop)
+        {
+            PauseAndUnPause(1f, false);
+            shopScreen.SetActive(false);
+        }
+    }
+
     void EndGame()
     {
         if (bossBeaten)
@@ -179,7 +199,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void PauseAndUnPause(float timeScale, bool isPaused) //deel van pauseGame method
+    public void PauseAndUnPause(float timeScale, bool isPaused) //deel van pauseGame method
     {
         Time.timeScale = timeScale;
         paused = isPaused;

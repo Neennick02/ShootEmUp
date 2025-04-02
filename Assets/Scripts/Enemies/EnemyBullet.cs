@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 50f;
+    [SerializeField] private GameObject explosion;
     [Header("Change amount of range for random speed")]
     [SerializeField] float randomRange = 5;
     private ScreenShake screenShake;
@@ -41,6 +42,7 @@ public class EnemyBullet : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //explosie
+            Instantiate(explosion, transform.position, Quaternion.identity);
             screenShake.start = true;
             other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);

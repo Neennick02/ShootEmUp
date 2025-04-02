@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreAmount: 25
   useGravity: 1
+  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
 --- !u!1001 &1772105879038613191
 PrefabInstance:
   m_ObjectHideFlags: 0
