@@ -54,6 +54,14 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (other.gameObject.CompareTag("HomingBullet"))
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+            gameManager.score += 15;
+        }
+
         else if (other.gameObject.CompareTag("Scrap"))
         {
             Destroy(other.gameObject);

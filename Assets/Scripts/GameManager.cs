@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        //OpenShop();
+        OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
@@ -154,19 +154,16 @@ public class GameManager : MonoBehaviour
 
     void OpenShop()
     {
-        Debug.Log("TimeScale: " + Time.timeScale);
-        if (waveBar.currentWave  == 2 || waveBar.currentWave == 4 && !openShop)
+        if ((waveBar.currentWave  == 2 || waveBar.currentWave == 4) && !openShop)
         {
             openShop = true;
-                PauseAndUnPause(0f, false);
+                PauseAndUnPause(0f, true);
                 shopScreen.SetActive(true);
-                openShop = false;
         }
     }
 
     public void CloseShop()
     {
-        openShop = false;
         PauseAndUnPause(1f, false);
         shopScreen.SetActive(false);
     }
@@ -183,7 +180,7 @@ public class GameManager : MonoBehaviour
     }
     private void PauseGame() //zorgt voor pauze functionaliteit
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted && !openShop)
         {
             if (!paused)
             {
@@ -224,7 +221,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
+                //Time.timeScale = 1;
             }
             if (unlimitedFire)
             {
