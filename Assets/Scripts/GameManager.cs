@@ -157,9 +157,10 @@ public class GameManager : MonoBehaviour
         if ((waveBar.currentWave  == 2 || waveBar.currentWave == 4) && !openShop)
         {
             openShop = true;
-                PauseAndUnPause(0f, true);
-                shopScreen.SetActive(true);
+            PauseAndUnPause(0f, false);
+            shopScreen.SetActive(true);
         }
+        Debug.Log(paused);
     }
 
     public void CloseShop()
