@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
         if (openShop)
         {
             PauseAndUnPause(0f, true);
-           // shopScreen.SetActive(true);
+            shopScreen.SetActive(true);
         }
         else if(!openShop)
         {
