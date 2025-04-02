@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bombPrefab;
+    [SerializeField] private GameObject smokePrefab;
     [SerializeField] private Vector3 targetAngle;
     private Vector3 startAngle;
     private Vector3 endAngle = new Vector3(0, 0, 0);
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             if(bulletTimer > currentBulletRate)
             {
+                Instantiate(smokePrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 bulletTimer = 0;
             }

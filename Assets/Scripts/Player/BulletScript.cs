@@ -5,7 +5,7 @@ public class BulletScript : MonoBehaviour
 {
     Rigidbody rb;
     private PlayerController playerController;
-    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject explosionPrefab, splashPrefab;
     [SerializeField]  private int scoreAmount = 10;
     [SerializeField] private float bulletSpeed = 50f;
     private ScreenShake screenShake;
@@ -36,10 +36,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Water"))
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,7 +45,7 @@ public class BulletScript : MonoBehaviour
         {
             //damage Enemy 
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bulletDamage);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += scoreAmount;
             Destroy(gameObject);
@@ -56,7 +53,7 @@ public class BulletScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("HomingBullet"))
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             Destroy(gameObject);
             gameManager.score += 15;
@@ -70,10 +67,14 @@ public class BulletScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bulletDamage);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += 25;
             Destroy (gameObject);
+        }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Instantiate(splashPrefab, transform.position, Quaternion.identity);
         }
     }
 }

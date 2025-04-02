@@ -160,7 +160,6 @@ public class GameManager : MonoBehaviour
             PauseAndUnPause(0f, false);
             shopScreen.SetActive(true);
         }
-        Debug.Log(paused);
     }
 
     public void CloseShop()
@@ -181,7 +180,7 @@ public class GameManager : MonoBehaviour
     }
     private void PauseGame() //zorgt voor pauze functionaliteit
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted && !openShop)
+        if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
         {
             if (!paused)
             {

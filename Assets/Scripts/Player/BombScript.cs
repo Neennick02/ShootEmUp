@@ -7,7 +7,7 @@ public class BombScript : MonoBehaviour
     private ScreenShake screenShake;
     private GameManager gameManager;
     [SerializeField] private bool useGravity = true;
-    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject explosionPrefab, splashPrefab;
     private Rigidbody rb;
     private void Start()
     {
@@ -25,14 +25,6 @@ public class BombScript : MonoBehaviour
             rb.AddForce(Physics.gravity * (rb.mass * rb.mass));
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Water"))
-        {
-            //water splash
-            Destroy(gameObject);
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +33,7 @@ public class BombScript : MonoBehaviour
             //explosion prefab
             screenShake.start = true;
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             gameManager.score += scoreAmount;
             Destroy(gameObject);
         }
@@ -55,10 +47,14 @@ public class BombScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             screenShake.start = true;
             gameManager.score += 25;
             Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Instantiate(splashPrefab, transform.position, transform.rotation);
         }
     }
 }

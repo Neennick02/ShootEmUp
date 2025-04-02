@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 1
   startDelay: 3
+  smokePrefab: {fileID: 1548381653286744340, guid: 31d86433f4acd93498abea2eb9490ea8, type: 3}
   bullet: {fileID: 4078469466164136347, guid: 1f973b91b8a48e14a81ab955fa105123, type: 3}
   bulletSpawnPoint: {fileID: 2801696521534722175}
 --- !u!65 &4805529824951880407

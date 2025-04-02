@@ -7,7 +7,7 @@ public class CannonBullet : MonoBehaviour
     [SerializeField] private int damageAmount = 10;
     [Header("Change amount of range for random speed")]
     [SerializeField] private int randomRange = 5;
-    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject explosionPrefab, splashPrefab;
     private ScreenShake screenShake;
     void Start()
     {
@@ -26,23 +26,19 @@ public class CannonBullet : MonoBehaviour
         float randomSpeed = Random.Range(bulletSpeed - bulletSpeed / randomRange, bulletSpeed + bulletSpeed / randomRange);
         return randomSpeed;
     }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Water"))
-        {
-            //splash effect
-            Destroy(gameObject);
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             screenShake.start = true;
-            Instantiate(explosion, transform.position, Quaternion.identity);    
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);    
             other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Instantiate(splashPrefab, transform.position, Quaternion.identity);
         }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2541603005232994939}
+  - component: {fileID: 8126983587664063774}
   m_Layer: 0
   m_Name: Vfx_WindLoop
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   - {fileID: 4371654284707528708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8126983587664063774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458470514219081017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2738603a6d45e4a9e0910c1ffa18e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 5
 --- !u!1 &7387709573828895307
 GameObject:
   m_ObjectHideFlags: 0

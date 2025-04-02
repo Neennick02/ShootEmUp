@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BossScript : MonoBehaviour
+public class Boss : MonoBehaviour
 {
     [SerializeField] private float xSpeed = 5f;
     [SerializeField] private float yRange = 5f;
@@ -9,7 +9,7 @@ public class BossScript : MonoBehaviour
     [SerializeField] Vector3 stopTarget;
     [SerializeField] float lerpTime = 3f;
     float currentLerpTime;
-    
+
 
     private Vector3 startPos;
     public bool stopped = false;
@@ -32,7 +32,7 @@ public class BossScript : MonoBehaviour
 
     void CheckPos()
     {
-        if(transform.position.x < stopTarget.x)
+        if (transform.position.x < stopTarget.x)
         {
             stopped = true;
         }
@@ -41,8 +41,8 @@ public class BossScript : MonoBehaviour
     private void Move()
     {
         //beweeg naar links
-            if (stopped)
-            {
+        if (stopped)
+        {
             // Increase Lerp time
             currentLerpTime += Time.deltaTime;
             float t = currentLerpTime / lerpTime;
@@ -55,13 +55,13 @@ public class BossScript : MonoBehaviour
             float moveX = -currentSpeed * Time.deltaTime;
             transform.Translate(moveX, 0, 0);
         }
-            else
-            {
-                float moveX = -xSpeed * Time.deltaTime;
-                transform.Translate(moveX, 0, 0);
-            }
-            
-        
+        else
+        {
+            float moveX = -xSpeed * Time.deltaTime;
+            transform.Translate(moveX, 0, 0);
+        }
+
+
         //zorgt dat object op en neer beweegt
         timer += Time.deltaTime;
         float moveY = Mathf.Sin(timer / upDownTime * Mathf.PI * 2) * yRange;

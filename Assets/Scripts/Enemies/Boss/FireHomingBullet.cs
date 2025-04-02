@@ -5,12 +5,12 @@ public class FireHomingBullet : MonoBehaviour
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform firePoint;
-    private BossScript bossScript;
+    private Boss bossScript;
     float timer = 0f;
 
     private void Start()
     {
-        bossScript = FindFirstObjectByType<BossScript>();
+        bossScript = FindFirstObjectByType<Boss>();
     }
 
     private void Update()
