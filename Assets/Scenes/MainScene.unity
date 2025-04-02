@@ -538,7 +538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &64618815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4304,6 +4304,7 @@ MonoBehaviour:
   healthButton: {fileID: 739390584}
   speedButton: {fileID: 2131888469}
   cannonButton: {fileID: 23618509}
+  exit: {fileID: 64618814}
 --- !u!1 &1735072765
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,8 +4566,8 @@ RectTransform:
   - {fileID: 739390588}
   - {fileID: 2131888473}
   - {fileID: 23618513}
-  - {fileID: 1694451588}
   - {fileID: 64618815}
+  - {fileID: 1694451588}
   m_Father: {fileID: 1344779973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

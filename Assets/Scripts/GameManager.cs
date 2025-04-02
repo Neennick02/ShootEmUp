@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
         GameOver();
         EndGame();
         PauseGame();
-        Debug.Log(Time.timeScale);
     }
     
 
@@ -155,20 +154,21 @@ public class GameManager : MonoBehaviour
 
     void OpenShop()
     {
-        if(waveBar.currentWave  == 2 || waveBar.currentWave == 4)
+        Debug.Log("TimeScale: " + Time.timeScale);
+        if (waveBar.currentWave  == 2 || waveBar.currentWave == 4 && !openShop)
         {
             openShop = true;
+                PauseAndUnPause(0f, false);
+                shopScreen.SetActive(true);
+                openShop = false;
         }
-        if (openShop)
-        {
-            PauseAndUnPause(0f, true);
-            shopScreen.SetActive(true);
-        }
-        else if(!openShop)
-        {
-            PauseAndUnPause(1f, false);
-            shopScreen.SetActive(false);
-        }
+    }
+
+    public void CloseShop()
+    {
+        openShop = false;
+        PauseAndUnPause(1f, false);
+        shopScreen.SetActive(false);
     }
 
     void EndGame()
@@ -177,7 +177,6 @@ public class GameManager : MonoBehaviour
         {
             winScreen.SetActive(true);
             Destroy(player.GetComponent<PlayerController>());
-            
             DestroyEnemyTurrets();
             ResetScene();
         }
