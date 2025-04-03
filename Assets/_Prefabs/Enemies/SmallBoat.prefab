@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3257651281831760377}
+  m_Father: {fileID: 7662586605204401423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 63.297}
 --- !u!1 &1317021063267638707
 GameObject:
@@ -62,9 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7739222470521368797}
   - {fileID: 7662586605204401423}
-  - {fileID: 2039297554948170401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &951793290603043202
@@ -139,7 +137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3257651281831760377}
+  m_Father: {fileID: 7662586605204401423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4515259329299941751
 BoxCollider:
@@ -224,7 +222,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6410380880734576608, guid: d8da37eda781edf43932561c11bd9448, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7739222470521368797}
+    - targetCorrespondingSourceObject: {fileID: 6410380880734576608, guid: d8da37eda781edf43932561c11bd9448, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2039297554948170401}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6034242813004318042, guid: d8da37eda781edf43932561c11bd9448, type: 3}
       insertIndex: -1
@@ -268,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95725ce0c8b1c4e4cb7b5d09595950ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSoundPrefab: {fileID: 6820708095901958843, guid: a9927d3107299f0488d514177386a002, type: 3}
   interval: 1.5
   startDelay: 0
   smokePrefab: {fileID: 1548381653286744340, guid: 31d86433f4acd93498abea2eb9490ea8, type: 3}
