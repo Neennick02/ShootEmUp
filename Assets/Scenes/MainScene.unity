@@ -6740,7 +6740,7 @@ MonoBehaviour:
   speedupAmount: 10
   unlimitedFire: 1
   score: 0
-  scrapCounter: 15
+  scrapCounter: 0
   scoreThreshold: 100
   scoreText: {fileID: 574856636}
   scoreTextDeathScreen: {fileID: 355772382}
