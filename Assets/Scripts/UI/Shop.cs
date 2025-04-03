@@ -27,9 +27,9 @@ public class Shop : MonoBehaviour
 
     public void BuySpeedUp()
     {
-        if (gameManager.scrapCounter > 5)
+        if (gameManager.scrapCounter > 10)
         {
-            gameManager.scrapCounter -= 5;
+            gameManager.scrapCounter -= 10;
             playerController.movementSpeed = playerController.movementSpeed * 1.3f;
             speedButton.SetActive(false);
             gameManager.CloseShop();
@@ -38,12 +38,17 @@ public class Shop : MonoBehaviour
 
     public void BuyCannonUpgrade()
     {
-        if (gameManager.scrapCounter > 5)
+        if (gameManager.scrapCounter > 15)
         {
-            gameManager.scrapCounter -= 5;
+            gameManager.scrapCounter -= 15;
             cannonButton.SetActive(false);
+            playerController.extraCannonActivated = true;
             gameManager.CloseShop();
-            //wordt later toegevoegd
         }
+    }
+
+    public void CloseShop()
+    {
+        gameManager.CloseShop();
     }
 }
