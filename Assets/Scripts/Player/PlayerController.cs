@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,8 +16,8 @@ public class PlayerController : MonoBehaviour
     private float newBulletRate;
     private float newBombRate;
 
-
-    private float bulletTimer = 0f;
+    float bulletTimer = 0;
+    float extraBulletTimer = 0f;
     private float bombTimer = 0f;
     private float fireRateUpTimer = 0f;
     private bool startFirerateUpTimer = false;
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private float horizontalSpeed;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private Transform bombSpawnPoint;
+    [SerializeField] private Transform extraCannon;
+    [SerializeField] public bool extraCannonActivated = false;
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bombPrefab;
@@ -105,6 +108,7 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         bulletTimer += Time.deltaTime;
+        extraBulletTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
             if(bulletTimer > currentBulletRate)
@@ -112,6 +116,12 @@ public class PlayerController : MonoBehaviour
                 Instantiate(smokePrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 bulletTimer = 0;
+            }
+            if(extraCannonActivated && (extraBulletTimer > currentBulletRate))
+            {
+                Instantiate(smokePrefab, extraCannon.position, extraCannon.rotation);
+                Instantiate(bulletPrefab, extraCannon.position, extraCannon.rotation);
+                extraBulletTimer = 0;
             }
         }
     }
