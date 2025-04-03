@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95725ce0c8b1c4e4cb7b5d09595950ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunSoundPrefab: {fileID: 2648437419641502390, guid: 1199666f2f1ee894190624499e42e5b6, type: 3}
+  gunSoundPrefab: {fileID: 9182342070648085534, guid: 05664f46e56987d458af6eb23e818272, type: 3}
   interval: 2.5
   startDelay: 0
   smokePrefab: {fileID: 1548381653286744340, guid: 31d86433f4acd93498abea2eb9490ea8, type: 3}
