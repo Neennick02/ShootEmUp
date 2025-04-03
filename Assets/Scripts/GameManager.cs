@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scrapTextShop;
     [SerializeField] private TextMeshProUGUI scrapTextEndScreen;
 
+    [SerializeField] private GameObject controlsImage;
     [SerializeField] private GameObject waveObject;
     [SerializeField] private GameObject bossWaveObject;
     [SerializeField] private TextMeshProUGUI waveText;
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        controlsImage.SetActive(true);
         waveBar = FindFirstObjectByType<WaveBar>();  //links naar andere scripts
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         DisplayWaveText();
@@ -105,6 +107,10 @@ public class GameManager : MonoBehaviour
                     spawned = true;
                     firstWaveStarted = true;
                 }
+            }
+            if(waveBar.currentWave > 2)
+            {
+                controlsImage.SetActive(false);
             }
         }
         else
