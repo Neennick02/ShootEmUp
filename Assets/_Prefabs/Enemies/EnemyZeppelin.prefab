@@ -205,15 +205,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6386796493965692763, guid: 6d14e17cd41593644902db11308221ff, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6386796493965692763, guid: 6d14e17cd41593644902db11308221ff, type: 3}
       propertyPath: m_LocalScale.y
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6386796493965692763, guid: 6d14e17cd41593644902db11308221ff, type: 3}
       propertyPath: m_LocalScale.z
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6386796493965692763, guid: 6d14e17cd41593644902db11308221ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 2.5
   startDelay: 0
+  smokePrefab: {fileID: 1548381653286744340, guid: 31d86433f4acd93498abea2eb9490ea8, type: 3}
   bullet: {fileID: 4078469466164136347, guid: 4695b6aa02f7c2842bd9df9b55a3189e, type: 3}
   bulletSpawnPoint: {fileID: 1451439186784083116}
 --- !u!114 &6775627192088416745

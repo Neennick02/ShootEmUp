@@ -86,6 +86,7 @@ MonoBehaviour:
   bombSpawnPoint: {fileID: 1040275179825730623}
   bulletPrefab: {fileID: 5792239935083737496, guid: 0501ddd438d01c049a0d1b7223e01d96, type: 3}
   bombPrefab: {fileID: 1436336621381295476, guid: 3900cf4f419f1ec4f9eee1f8fca9d4fe, type: 3}
+  smokePrefab: {fileID: 1548381653286744340, guid: d0492d8f63ffc52479eb1838a1eca6e2, type: 3}
   targetAngle: {x: 0, y: 0, z: -40}
   bulletDamage: 10
   bombDamage: 30
@@ -194,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 8272204748635286267}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 9.555829, z: 8.611407}
+  m_LocalPosition: {x: 0, y: 9.88, z: 10.59}
   m_LocalScale: {x: 23.081713, y: 10.627692, z: 10.627692}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -152,7 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreAmount: 25
   useGravity: 1
-  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  explosionPrefab: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  splashPrefab: {fileID: 8984263323835314135, guid: fead1b2e44c9eff4abe647d5ae2ebeba, type: 3}
 --- !u!1001 &1772105879038613191
 PrefabInstance:
   m_ObjectHideFlags: 0

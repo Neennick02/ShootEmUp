@@ -90,7 +90,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317021063267638707}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 1.5
   startDelay: 0
+  smokePrefab: {fileID: 1548381653286744340, guid: 31d86433f4acd93498abea2eb9490ea8, type: 3}
   bullet: {fileID: 8347674606488146748, guid: 6d5cbb0e1d2f6974e9347bc2469c5bc2, type: 3}
   bulletSpawnPoint: {fileID: 7739222470521368797}
 --- !u!65 &3422133599721215522

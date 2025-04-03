@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 30
-  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  explosionPrefab: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  splashPrefab: {fileID: 8984263323835314135, guid: fead1b2e44c9eff4abe647d5ae2ebeba, type: 3}
   randomRange: 5
   damageAmount: 10
 --- !u!1001 &867252909860611643
@@ -170,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3284286685301951243, guid: d9df8d6b8b1e22f45ba13d5eb9bd65a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3284286685301951243, guid: d9df8d6b8b1e22f45ba13d5eb9bd65a6, type: 3}
       propertyPath: m_LocalPosition.y

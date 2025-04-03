@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     [Header("Config")]
     [SerializeField] private float interval = 1f;
     [SerializeField] private float startDelay = 0f;
+    [SerializeField] private GameObject smokePrefab;
     [Header("DO NOT TOUCH")]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletSpawnPoint;
@@ -36,6 +37,7 @@ public class Turret : MonoBehaviour
             yield return new WaitForSeconds(startDelay);
             while (true)
             {
+                Instantiate(smokePrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 yield return new WaitForSeconds(interval);
             }

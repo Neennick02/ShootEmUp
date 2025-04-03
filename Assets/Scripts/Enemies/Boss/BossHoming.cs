@@ -3,6 +3,7 @@ using UnityEngine;
 public class BossHoming : MonoBehaviour
 {
     [SerializeField] int damageAmount = 10;
+    [SerializeField] private GameObject explosionPrefab;
     Transform target;
     public float speed = 5f;
     public float rotateSpeed = .03f;
@@ -23,7 +24,7 @@ public class BossHoming : MonoBehaviour
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         if(target == null)
         {
-            Debug.Log("SDA");
+            Debug.Log("no target found");
         }
     }
 
@@ -31,31 +32,26 @@ public class BossHoming : MonoBehaviour
     {
         Vector3 direction = target.position - rb.position;
         direction.Normalize();
-        // rotate rocket to player
         Vector3 amountToRotate = Vector3.Cross(direction, transform.forward) * Vector3.Angle(transform.forward, direction);
 
-        // let car fly forward
         rb.angularVelocity = -amountToRotate * rotateSpeed;
 
         rb.linearVelocity = transform.forward * speed;
-       /* //Delete car if no health
-        if (carHealth <= 0)
-        {
-            gameManager.score += 10;
-            Destroy(gameObject);
-        }*/
+
     }
     private void OnTriggerEnter(Collider other)
     {
         // check if rocket hit player
         if (other.CompareTag("Player"))
         {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
             playerHealth.SetHealth(-damageAmount);
         }
         // check if car got hit by bullet
         if (other.CompareTag("PlayerProjectile"))
         {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

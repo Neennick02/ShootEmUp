@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 50f;
-    [SerializeField] private GameObject explosion;
+    [SerializeField] private GameObject explosionPrefab, splashPrefab;
     [Header("Change amount of range for random speed")]
     [SerializeField] float randomRange = 5;
     private ScreenShake screenShake;
@@ -28,24 +28,19 @@ public class EnemyBullet : MonoBehaviour
         return randomSpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Water"))
-        {
-            //splash effect
-            Destroy(gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             //explosie
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             screenShake.start = true;
             other.gameObject.GetComponent<PlayerHealth>().SetHealth(-damageAmount);
             Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Instantiate(splashPrefab, transform.position, Quaternion.identity);
         }
     }
 }

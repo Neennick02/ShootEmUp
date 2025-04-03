@@ -56,12 +56,11 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        //OpenShop();
+        OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
         PauseGame();
-        Debug.Log(Time.timeScale);
     }
     
 
@@ -155,20 +154,18 @@ public class GameManager : MonoBehaviour
 
     void OpenShop()
     {
-        if(waveBar.currentWave  == 2 || waveBar.currentWave == 4)
+        if ((waveBar.currentWave  == 2 || waveBar.currentWave == 4) && !openShop)
         {
             openShop = true;
-        }
-        if (openShop)
-        {
-            PauseAndUnPause(0f, true);
+            PauseAndUnPause(0f, false);
             shopScreen.SetActive(true);
         }
-        else if(!openShop)
-        {
-            PauseAndUnPause(1f, false);
-            shopScreen.SetActive(false);
-        }
+    }
+
+    public void CloseShop()
+    {
+        PauseAndUnPause(1f, false);
+        shopScreen.SetActive(false);
     }
 
     void EndGame()
@@ -177,7 +174,6 @@ public class GameManager : MonoBehaviour
         {
             winScreen.SetActive(true);
             Destroy(player.GetComponent<PlayerController>());
-            
             DestroyEnemyTurrets();
             ResetScene();
         }
@@ -225,7 +221,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
+                //Time.timeScale = 1;
             }
             if (unlimitedFire)
             {

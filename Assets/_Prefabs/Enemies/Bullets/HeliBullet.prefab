@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 50
-  explosion: {fileID: 1038384030417477648, guid: 45f2a23b6f123344fbfc40622f275233, type: 3}
+  explosionPrefab: {fileID: 405119028223048828, guid: 274b2234f78b2744f94603ac619095c8, type: 3}
+  splashPrefab: {fileID: 1705980759676761633, guid: d57ff78e2f80d3346a26e713c7a6c517, type: 3}
   randomRange: 5
   damageAmount: 2
