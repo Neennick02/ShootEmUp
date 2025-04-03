@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private float verticalSpeed;
     private float horizontalSpeed;
+    [SerializeField] GameObject gunSoundPrefab;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private Transform bombSpawnPoint;
     [SerializeField] private Transform extraCannon;
@@ -113,12 +114,14 @@ public class PlayerController : MonoBehaviour
         {
             if(bulletTimer > currentBulletRate)
             {
+                Instantiate(gunSoundPrefab, transform.position, Quaternion.identity);
                 Instantiate(smokePrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 bulletTimer = 0;
             }
             if(extraCannonActivated && (extraBulletTimer > currentBulletRate))
             {
+                Instantiate(gunSoundPrefab, transform.position, Quaternion.identity);
                 Instantiate(smokePrefab, extraCannon.position, extraCannon.rotation);
                 Instantiate(bulletPrefab, extraCannon.position, extraCannon.rotation);
                 extraBulletTimer = 0;

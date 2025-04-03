@@ -6,6 +6,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     [Header("Config")]
+    [SerializeField] GameObject gunSoundPrefab;
     [SerializeField] private float interval = 1f;
     [SerializeField] private float startDelay = 0f;
     [SerializeField] private GameObject smokePrefab;
@@ -37,6 +38,7 @@ public class Turret : MonoBehaviour
             yield return new WaitForSeconds(startDelay);
             while (true)
             {
+                Instantiate(gunSoundPrefab, transform.position, Quaternion.identity);
                 Instantiate(smokePrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
                 yield return new WaitForSeconds(interval);
