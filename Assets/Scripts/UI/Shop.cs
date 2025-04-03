@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour
     }
     public void BuyHealth()
     {
-        if (gameManager.scrapCounter > 5)
+        if (gameManager.scrapCounter >= 5)
         {
             gameManager.scrapCounter -= 5;
             playerHealth.maxHealth = 160;
@@ -31,7 +31,7 @@ public class Shop : MonoBehaviour
 
     public void BuySpeedUp()
     {
-        if (gameManager.scrapCounter > 10)
+        if (gameManager.scrapCounter >= 10)
         {
             gameManager.scrapCounter -= 10;
             playerController.movementSpeed = playerController.movementSpeed * 1.6f;
@@ -42,7 +42,7 @@ public class Shop : MonoBehaviour
 
     public void BuyCannonUpgrade()
     {
-        if (gameManager.scrapCounter > 15)
+        if (gameManager.scrapCounter >= 15)
         {
             gameManager.scrapCounter -= 15;
             cannonButton.SetActive(false);
