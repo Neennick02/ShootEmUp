@@ -1,16 +1,15 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class HomeScreen : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void StartGame()
     {
-        
+        SceneManager.LoadScene("MainScene");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame()
     {
-        
+        Application.Quit();
+        Debug.Log("Quit");
     }
 }
