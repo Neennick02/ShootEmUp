@@ -8,20 +8,25 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - Water
+  - Boss
+  - Scrap
+  - Powerup
+  - Homing bullet
+  - HomingBullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyBullet
+  - Post
+  - PowerUp
+  - Player
+  - Collision
+  - HomingBullet
   - 
   - 
   - 

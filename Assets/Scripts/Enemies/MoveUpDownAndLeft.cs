@@ -5,6 +5,7 @@ public class MoveUpDownAndLeft : MonoBehaviour
     [SerializeField] private float xSpeed = 5f;
     [SerializeField] private float yRange = 5f;
     [SerializeField] private float upDownTime = 5f;
+    private GameManager gameManager;
     
     float timer = 0f;
 
@@ -13,6 +14,7 @@ public class MoveUpDownAndLeft : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
     }

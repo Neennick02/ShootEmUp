@@ -1,0 +1,60 @@
+using UnityEngine;
+
+public class BombScript : MonoBehaviour
+{
+    private PlayerController playerController;
+    [SerializeField] private int scoreAmount = 25;
+    private ScreenShake screenShake;
+    private GameManager gameManager;
+    [SerializeField] private bool useGravity = true;
+    [SerializeField] private GameObject explosionPrefab, splashPrefab;
+    private Rigidbody rb;
+    private void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        playerController = FindFirstObjectByType<PlayerController>();
+        screenShake = FindFirstObjectByType<ScreenShake>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.useGravity = false;
+        if (useGravity)
+        {
+            rb.AddForce(Physics.gravity * (rb.mass * rb.mass));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //explosion prefab
+            screenShake.start = true;
+            other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            gameManager.score += scoreAmount;
+            Destroy(gameObject);
+        }
+
+        else if (other.gameObject.CompareTag("Scrap"))
+        {
+            Destroy(other.gameObject);
+            gameManager.scrapCounter++;
+        }
+
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            other.gameObject.GetComponent<Health>().takeDamage((int)playerController.bombDamage);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            screenShake.start = true;
+            gameManager.score += 25;
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Instantiate(splashPrefab, transform.position, transform.rotation);
+        }
+    }
+}
