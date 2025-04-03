@@ -1014,15 +1014,15 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 36.16
   m_MaxDistance: 36.32
-  m_ReverbPreset: 11
+  m_ReverbPreset: 6
   m_Room: -1000
-  m_RoomHF: -1000
-  m_DecayTime: 10.05
-  m_DecayHFRatio: 0.23
-  m_Reflections: -602
-  m_ReflectionsDelay: 0.02
-  m_Reverb: 198
-  m_ReverbDelay: 0.03
+  m_RoomHF: -300
+  m_DecayTime: 2.31
+  m_DecayHFRatio: 0.64
+  m_Reflections: -711
+  m_ReflectionsDelay: 0.012
+  m_Reverb: 83
+  m_ReverbDelay: 0.017
   m_HFReference: 5000
   m_Diffusion: 100
   m_Density: 100
@@ -1037,7 +1037,7 @@ Transform:
   m_GameObject: {fileID: 816716801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 451.10995, y: 1073.8007, z: -901.9307}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
