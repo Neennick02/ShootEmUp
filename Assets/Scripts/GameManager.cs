@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float scoreThreshold;
     [Header("UI elements")]
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreTextDeathScreen;
     [SerializeField] private TextMeshProUGUI scrapText;
+    [SerializeField] private TextMeshProUGUI scrapTextShop;
     [SerializeField] private GameObject waveObject;
     [SerializeField] private GameObject bossWaveObject;
     [SerializeField] private TextMeshProUGUI waveText;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject shopScreen;
     public bool openShop = false;
+    bool firstWaveStarted = false;
     [Header("Enemy Waves")]
     [SerializeField] private List<GameObject> waves = new List<GameObject>();
     private WaveBar waveBar;
@@ -56,7 +59,7 @@ public class GameManager : MonoBehaviour
         SpawnPowerUp();
         DisplayScrapAndScore(); //UI elementen
 
-        OpenShop();
+       // OpenShop();
         EnableGodMode();
         GameOver();
         EndGame();
@@ -88,11 +91,17 @@ public class GameManager : MonoBehaviour
             {
                 if (!spawned)
                 {
+                    if (firstWaveStarted)
+                    {
+                        openShop = false;
+                        OpenShop();
+                    }
                     showWave = true;
                     waveBar.NextWave();
                     DisplayWaveText();
-                    StartWave((int)waveBar.currentWave);
+                    StartWave((int)waveBar.currentWave - 1);
                     spawned = true;
+                    firstWaveStarted = true;
                 }
             }
         }
@@ -106,15 +115,17 @@ public class GameManager : MonoBehaviour
     void DisplayScrapAndScore() 
     {
         scrapText.text = "Scrap : " + scrapCounter; //geeft het aantal verzamelde scrap weer
+        scrapTextShop.text = "Scrap : " + scrapCounter;
         score = Mathf.Clamp(score, 0, 9999);
         scoreText.text = "Score : " + score;//geeft de score weer
+        scoreTextDeathScreen.text = "Score : " + score;
     }
 
 
     void DisplayWaveText() //geeft de wave tekst weer
     {
         waveText.text = "Wave " + waveBar.currentWave;
-        if (waveBar.currentWave == waveBar.maxWaves - 1)
+        if (waveBar.currentWave == waveBar.maxWaves)
         {
             waveText.text = "Boss incoming!";
         }
@@ -154,7 +165,7 @@ public class GameManager : MonoBehaviour
 
     void OpenShop()
     {
-        if ((waveBar.currentWave  == 2 || waveBar.currentWave == 4) && !openShop)
+        if (!openShop)
         {
             openShop = true;
             PauseAndUnPause(0f, false);
@@ -175,7 +186,6 @@ public class GameManager : MonoBehaviour
             winScreen.SetActive(true);
             Destroy(player.GetComponent<PlayerController>());
             DestroyEnemyTurrets();
-            ResetScene();
         }
     }
     private void PauseGame() //zorgt voor pauze functionaliteit
@@ -231,14 +241,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void ResetScene()
+    public void ResetScene()
     {
-        if (Input.GetKeyDown(KeyCode.R)) //reset scene
-        {
             SceneManager.LoadScene("MainScene");
-        }
     }
 
+    public void QuitToTitle()
+    {
+        SceneManager.LoadScene("HomeScreen");
+
+    }
     void GameOver() // checkt of speler dood is
     {
         if (playerHealth.health <= 0)
@@ -251,7 +263,6 @@ public class GameManager : MonoBehaviour
             deathScreen.SetActive(true);
             Destroy(player.GetComponent<PlayerController>());
             DestroyEnemyTurrets();
-            ResetScene();
         }
     }
 }
