@@ -8,11 +8,13 @@ public class Shop : MonoBehaviour
     private PlayerHealth playerHealth;
     private GameManager gameManager;
     private PlayerController playerController;
+    private HealthBar bar;
     private void Start()
     {
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         playerController = FindFirstObjectByType<PlayerController>();
         gameManager = FindFirstObjectByType<GameManager>();
+        bar = FindFirstObjectByType<HealthBar>();
     }
     public void BuyHealth()
     {
@@ -20,6 +22,8 @@ public class Shop : MonoBehaviour
         {
             gameManager.scrapCounter -= 5;
             playerHealth.maxHealth = 160;
+            bar.SetMaxHealth(playerHealth.maxHealth);
+            playerHealth.SetHealth(playerHealth.maxHealth);
             healthButton.SetActive(false);
             gameManager.CloseShop();
         }
