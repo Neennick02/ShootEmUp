@@ -34,7 +34,7 @@ public class Shop : MonoBehaviour
         if (gameManager.scrapCounter > 10)
         {
             gameManager.scrapCounter -= 10;
-            playerController.movementSpeed = playerController.movementSpeed * 1.3f;
+            playerController.movementSpeed = playerController.movementSpeed * 1.6f;
             speedButton.SetActive(false);
             gameManager.CloseShop();
         }

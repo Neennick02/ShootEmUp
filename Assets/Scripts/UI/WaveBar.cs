@@ -28,7 +28,7 @@ public class WaveBar : MonoBehaviour
     {
         bar.sizeDelta = new Vector2(newWidth, height);
         waveText.text = "Wave " + currentWave;
-        if(currentWave == maxWaves - 1)
+        if(currentWave == maxWaves )
         {
             waveText.text = "Final Wave";
         }
