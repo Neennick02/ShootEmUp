@@ -5,6 +5,7 @@ public class FireHomingBullet : MonoBehaviour
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform firePoint;
+    [SerializeField] GameObject gunSoundPrefab;
     private Boss bossScript;
     float timer = 0f;
 
@@ -20,6 +21,7 @@ public class FireHomingBullet : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > fireRate) //vuurt homing bullets af
             {
+                Instantiate(gunSoundPrefab, firePoint.position, Quaternion.identity);
                 Instantiate(bullet, firePoint.position, Quaternion.identity);
                 timer = 0f;
             }

@@ -9313,6 +9313,10 @@ PrefabInstance:
       value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6788434697920479025, guid: 221174c8b2416214cad110ae6dec4180, type: 3}
+      propertyPath: gunSoundPrefab
+      value: 
+      objectReference: {fileID: 2648437419641502390, guid: 1199666f2f1ee894190624499e42e5b6, type: 3}
+    - target: {fileID: 6788434697920479025, guid: 221174c8b2416214cad110ae6dec4180, type: 3}
       propertyPath: extraCannonActivated
       value: 0
       objectReference: {fileID: 0}
