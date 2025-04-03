@@ -17,8 +17,11 @@ public class GameManager : MonoBehaviour
     [Header("UI elements")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scoreTextDeathScreen;
+    [SerializeField] private TextMeshProUGUI scoreTextEndScreen;
     [SerializeField] private TextMeshProUGUI scrapText;
     [SerializeField] private TextMeshProUGUI scrapTextShop;
+    [SerializeField] private TextMeshProUGUI scrapTextEndScreen;
+
     [SerializeField] private GameObject waveObject;
     [SerializeField] private GameObject bossWaveObject;
     [SerializeField] private TextMeshProUGUI waveText;
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         waveBar = FindFirstObjectByType<WaveBar>();  //links naar andere scripts
         playerHealth = FindFirstObjectByType<PlayerHealth>();
         DisplayWaveText();
@@ -73,8 +77,6 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(waves[waveNumber], transform.position, Quaternion.identity);
     }
-
-    
 
     void NextWave()
     {
@@ -116,9 +118,12 @@ public class GameManager : MonoBehaviour
     {
         scrapText.text = "Scrap : " + scrapCounter; //geeft het aantal verzamelde scrap weer
         scrapTextShop.text = "Scrap : " + scrapCounter;
+        scrapTextEndScreen.text = "Scrap : " + scrapCounter;
         score = Mathf.Clamp(score, 0, 9999);
         scoreText.text = "Score : " + score;//geeft de score weer
         scoreTextDeathScreen.text = "Score : " + score;
+        scoreTextEndScreen.text = "Score : " + score;
+
     }
 
 
@@ -250,6 +255,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("HomeScreen");
 
+    }
+
+    public void OpenCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
     void GameOver() // checkt of speler dood is
     {
