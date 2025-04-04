@@ -4587,7 +4587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736901984651702242, guid: 1d4c60a6038b04c4ab2b603c0a1fdecf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7012,7 +7012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0357f97108ed4c34ca4d07fa939955e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 1
+  godMode: 0
   speedupAmount: 10
   unlimitedFire: 1
   score: 0
