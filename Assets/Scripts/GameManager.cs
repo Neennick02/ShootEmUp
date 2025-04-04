@@ -271,6 +271,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerHealth.health <= 0)
         {
+            Time.timeScale = 0f;
             isAlive = false;
             gameStarted = false;
         }

@@ -26,19 +26,35 @@ public class BossHoming : MonoBehaviour
         {
             Debug.Log("no target found");
         }
+        RotateTowardsPlayer(360f);
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
+    {
+        RotateTowardsPlayer(rotateSpeed);
+
+        Vector3 direction = target.position - rb.position;
+        direction.z = 0f;
+        direction.Normalize();
+
+        rb.linearVelocity = direction * speed;
+
+    }
+
+    private void RotateTowardsPlayer(float rotationSpeed)
     {
         Vector3 direction = target.position - rb.position;
+        direction.z = 0f;
         direction.Normalize();
-        Vector3 amountToRotate = Vector3.Cross(direction, transform.forward) * Vector3.Angle(transform.forward, direction);
 
-        rb.angularVelocity = -amountToRotate * rotateSpeed;
 
-        rb.linearVelocity = transform.forward * speed;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, rotationSpeed);
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         // check if rocket hit player
@@ -48,7 +64,7 @@ public class BossHoming : MonoBehaviour
             Destroy(gameObject);
             playerHealth.SetHealth(-damageAmount);
         }
-        // check if car got hit by bullet
+        // check if gameobject got hit by bullet
         if (other.CompareTag("PlayerProjectile"))
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
