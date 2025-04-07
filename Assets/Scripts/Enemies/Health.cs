@@ -6,10 +6,13 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject scrapPrefab;
     private GameManager gameManager;
     public float currentHealth;
+    private BossHealthBar BossHealthBar;
 
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        BossHealthBar = FindFirstObjectByType<BossHealthBar>();
+
         gameManager.enemies.Add(gameObject);
         currentHealth = maxHealth;
     }
@@ -18,6 +21,7 @@ public class Health : MonoBehaviour
     {
         Die();
         CheckPostion();
+        BossHealth();
     }
 
     public void takeDamage(int amount)
@@ -46,6 +50,14 @@ public class Health : MonoBehaviour
             gameManager.score -= 20;
             gameManager.enemies.Remove(gameObject);
             Destroy(gameObject);
+        }
+    }
+
+    void BossHealth()
+    {
+        if (this.gameObject.CompareTag("Boss"))
+        {
+            BossHealthBar.SetHealth(currentHealth, maxHealth);
         }
     }
 }

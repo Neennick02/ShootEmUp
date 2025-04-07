@@ -7,6 +7,7 @@ public class FireHomingBullet : MonoBehaviour
     [SerializeField] private Transform firePoint0;
     [SerializeField] private Transform firePoint1;
     [SerializeField] GameObject gunSoundPrefab;
+    [SerializeField] Health health;
     private Boss bossScript;
     float timer = 0f;
 
@@ -26,6 +27,19 @@ public class FireHomingBullet : MonoBehaviour
                 Instantiate(bullet, firePoint0.position, Quaternion.identity);
                 timer = 0f;
             }
+        }
+        NextPhase();
+    }
+
+    void NextPhase()
+    {
+        if(health.currentHealth < 600)
+        {
+            fireRate = 1;
+        }
+        else if(health.currentHealth < 300)
+        {
+            fireRate = 0.5f;
         }
     }
 }

@@ -5,6 +5,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private float xSpeed = 5f;
     [SerializeField] private float yRange = 5f;
     [SerializeField] private float upDownTime = 5f;
+    [SerializeField] private Health health;
+    [SerializeField] private GameObject healthBar;
 
     [SerializeField] Vector3 stopTarget;
     [SerializeField] float lerpTime = 3f;
@@ -28,13 +30,31 @@ public class Boss : MonoBehaviour
     {
         CheckPos();
         Move();
+        CheckHealth();
+        ShowHealthBar();
     }
 
     void CheckPos()
-    {
+    {   //zorgt dat de boss stopt met bewegen als hij op target is aangekomen.
         if (transform.position.x < stopTarget.x)
         {
             stopped = true;
+        }
+    }
+
+    void ShowHealthBar()
+    {
+        if (stopped)
+        {
+            healthBar.SetActive(true);
+        }
+    }
+
+    void CheckHealth() //zorgt dat boss pas geraakt kan worden als hij in beeld is.
+    {
+        if (!stopped)
+        {
+            health.currentHealth = health.maxHealth;
         }
     }
 

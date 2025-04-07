@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject shopScreen;
+    [SerializeField] private GameObject bossHealthBar;
     public bool openShop = false;
     bool firstWaveStarted = false;
     [Header("Enemy Waves")]
@@ -47,8 +48,8 @@ public class GameManager : MonoBehaviour
     private bool gameStarted = true;
     private bool paused = false;
     private bool showWave = true;
-    
 
+    float timer = 0f;
 
     private void Start()
     {
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
         GameOver();
         EndGame();
         PauseGame();
+        ShowBossHealth();
     }
     
 
@@ -118,6 +120,15 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
        
+    }
+
+    void ShowBossHealth()
+    {
+        timer += Time.deltaTime;
+        if(waveBar.currentWave == waveBar.maxWaves && timer > 2f)
+        {
+            bossHealthBar.SetActive(true);
+        }
     }
 
     void DisplayScrapAndScore() 
