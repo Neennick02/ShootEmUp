@@ -18,16 +18,16 @@ public class CannonBullet : MonoBehaviour
 
     void Update()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 4f); //zorgt dat object verwijderd wordt
     }
 
-    float RandomizeBullet()
+    float RandomizeBullet() //zorgt dat niet elk shot even hard afgevuurt wordt
     {
         float randomSpeed = Random.Range(bulletSpeed - bulletSpeed / randomRange, bulletSpeed + bulletSpeed / randomRange);
         return randomSpeed;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //checkt welk object geraakt wordt
     {
         if (other.gameObject.CompareTag("Player"))
         {

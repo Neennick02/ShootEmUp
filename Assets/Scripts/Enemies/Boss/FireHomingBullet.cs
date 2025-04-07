@@ -35,11 +35,11 @@ public class FireHomingBullet : MonoBehaviour
     {
         if(health.currentHealth < 600)
         {
-            fireRate = 1;
+            fireRate = 1; //zorgt dat boss sneller schiet
         }
         else if(health.currentHealth < 300)
         {
-            fireRate = 0.5f;
+            fireRate = 0.5f; //zorgt dat boss nog sneller schiet
         }
     }
 }

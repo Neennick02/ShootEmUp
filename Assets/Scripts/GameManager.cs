@@ -62,22 +62,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        NextWave();
-        SpawnPowerUp();
+        NextWave();             //checkt of enemies dood zijn
+        SpawnPowerUp();         //spawned powerups
         DisplayScrapAndScore(); //UI elementen
 
-       // OpenShop();
-        EnableGodMode();
-        GameOver();
-        EndGame();
-        PauseGame();
-        ShowBossHealth();
+        EnableGodMode();        //godmode voor testen
+        GameOver();             //speler gaat dood
+        EndGame();              //einde spel
+        PauseGame();            //pausescherm
+        ShowBossHealth();       //laat healthbar van boss zien
     }
     
 
     
 
-    void StartWave(int waveNumber)
+    void StartWave(int waveNumber) //bepaald welke prefab gespawned moet worden
     {
         Instantiate(waves[waveNumber], transform.position, Quaternion.identity);
     }
@@ -97,12 +96,12 @@ public class GameManager : MonoBehaviour
             {
                 if (!spawned)
                 {
-                    if (firstWaveStarted)
+                    if (firstWaveStarted) //zorgt dat shop niet 1e wave opent
                     {
                         openShop = false;
                         OpenShop();
                     }
-                    showWave = true;
+                    showWave = true;  //zorgt dat shop elke andere wave wel opent
                     waveBar.NextWave();
                     DisplayWaveText();
                     StartWave((int)waveBar.currentWave - 1);
@@ -110,24 +109,28 @@ public class GameManager : MonoBehaviour
                     firstWaveStarted = true;
                 }
             }
-            if(waveBar.currentWave > 2)
+            if(waveBar.currentWave > 2) //controls verdwijnen uit het scherm
             {
                 controlsImage.SetActive(false);
             }
         }
         else
         {
-            EndGame();
+            EndGame(); //eindigt spel na verslaan van boss
         }
        
     }
 
-    void ShowBossHealth()
+    void ShowBossHealth() //zorgt dat de healthbar in beeld komt bij begin bosswave
     {
         timer += Time.deltaTime;
-        if(waveBar.currentWave == waveBar.maxWaves && timer > 2f)
+        if(waveBar.currentWave == waveBar.maxWaves)
         {
-            bossHealthBar.SetActive(true);
+            timer += Time.deltaTime;
+            if (timer > 2)
+            {
+                bossHealthBar.SetActive(true);
+            }
         }
     }
 
@@ -166,14 +169,14 @@ public class GameManager : MonoBehaviour
 
     void SpawnPowerUp()
     {
-        if(score > scoreThreshold)
+        if(score > scoreThreshold) //spawned random powerup uit array
         {
             RandomPowerup();
             scoreThreshold = scoreThreshold + 100;
         }
     }
 
-    void RandomPowerup()
+    void RandomPowerup() //bepaald welke powerup gespawned moet worden
     {
         float spawnX = Random.Range(-25, 30);
         float spawnY = 53f;
@@ -185,7 +188,7 @@ public class GameManager : MonoBehaviour
         Instantiate(powerups[powerupIndex], spawnPos, Quaternion.identity);
     }
 
-    void OpenShop()
+    void OpenShop() //opend shop
     {
         if (!openShop)
         {
@@ -195,13 +198,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CloseShop()
+    public void CloseShop() //sluit shop
     {
         PauseAndUnPause(1f, false);
         shopScreen.SetActive(false);
     }
 
-    void EndGame()
+    void EndGame() //eindigt spel
     {
         if (bossBeaten)
         {
@@ -263,18 +266,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetScene()
+    public void ResetScene() //methods voor ui knoppen
     {
             SceneManager.LoadScene("MainScene");
     }
 
-    public void QuitToTitle()
+    public void QuitToTitle()//methods voor ui knoppen
     {
         SceneManager.LoadScene("HomeScreen");
 
     }
 
-    public void OpenCredits()
+    public void OpenCredits()//methods voor ui knoppen
     {
         SceneManager.LoadScene("Credits");
     }

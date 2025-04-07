@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
     }
 
-    void MovePlayer()
+    void MovePlayer() //verplaatst speler
     {
          verticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
          horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -30, 25), Mathf.Clamp(transform.position.y, 16, 49), transform.position.z);
     }
 
-    void RotatePlayer()
+    void RotatePlayer() //draait speler om te kunnen richten
     {
         if(verticalSpeed > 0)
         {
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void Shoot()
+    void Shoot() //schiet kogels
     {
         bulletTimer += Time.deltaTime;
         extraBulletTimer += Time.deltaTime;
@@ -129,20 +129,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void FireRateUp()
+    public void FireRateUp() //vuursnelheid gaat omhoog
     {
         startFirerateUpTimer = true;
         fireRateUpTimer = 0f;
     }
 
-    public void DamageUp()
+    public void DamageUp()//damage gaat omhoog
     {
         damageUp = true;
         bulletDamage = bulletDamage * 2;
         bombDamage = bombDamage * 2;
     }
 
-    void CheckForPowerUp()
+    void CheckForPowerUp()//controleerd of powerup opgepakt wordt en start timer
     {
         if (startFirerateUpTimer)
         {
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void DropBomb()
+    void DropBomb()//laat bommen vallen
     {
         bombTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftShift))
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//pakt scrap op
     {
         if (other.gameObject.CompareTag("Scrap"))
         {

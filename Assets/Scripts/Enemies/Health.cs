@@ -24,12 +24,12 @@ public class Health : MonoBehaviour
         BossHealth();
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(int amount) //neemt damage
     {
         currentHealth -= amount;
     }
 
-    void Die()
+    void Die() //verwijderd object uit de List<>
     {
         if(currentHealth <= 0)
         {
@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void CheckPostion()
+    void CheckPostion() //verwijderd object als hij het scherm verlaat
     {
         if (transform.position.x < -40)
         {
@@ -53,7 +53,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void BossHealth()
+    void BossHealth() //vuld de healthbar van de boss
     {
         if (this.gameObject.CompareTag("Boss"))
         {

@@ -8,18 +8,12 @@ public class HealthBar : MonoBehaviour
     private float health;
 
     [SerializeField] RectTransform healthBar;
-
-    private void Start()
-    {
-
-    }
-
-    public void SetMaxHealth(float max)
+    public void SetMaxHealth(float max) //steld de maximale health in
     {
         maxhealth = max;
     }
 
-    public void SetHealth(float Health)
+    public void SetHealth(float Health) //veranderd health bij nemen van damage
     {
         health = Health;
         float newWidth = (health / maxhealth) * width;

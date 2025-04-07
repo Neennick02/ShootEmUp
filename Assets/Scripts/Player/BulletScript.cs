@@ -26,7 +26,7 @@ public class BulletScript : MonoBehaviour
         OutOfBounds();
     }
 
-    private void OutOfBounds()
+    private void OutOfBounds() //zorgt dat speler niet object buiten beeld kan raken
     {
         if(transform.position.x > 36)
         {
@@ -34,12 +34,7 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //checkt welk object geraakt wordt
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
