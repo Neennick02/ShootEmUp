@@ -7,12 +7,13 @@ public class Health : MonoBehaviour
     private GameManager gameManager;
     public float currentHealth;
     private BossHealthBar BossHealthBar;
+    private Turret turret;
 
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
         BossHealthBar = FindFirstObjectByType<BossHealthBar>();
-
+        turret = GetComponent<Turret>();
         gameManager.enemies.Add(gameObject);
         currentHealth = maxHealth;
     }
@@ -35,6 +36,7 @@ public class Health : MonoBehaviour
         {
             Instantiate(scrapPrefab, transform.position, Quaternion.identity);
             gameManager.enemies.Remove(gameObject);
+            Destroy(turret);
             if (this.gameObject.CompareTag("Boss"))
             {
                 gameManager.bossBeaten = true;
