@@ -7012,7 +7012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0357f97108ed4c34ca4d07fa939955e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godMode: 0
+  godMode: 1
   speedupAmount: 10
   unlimitedFire: 1
   score: 0
