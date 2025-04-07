@@ -7,6 +7,11 @@ public class HomeScreen : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void ReturnHome()
+    {
+        SceneManager.LoadScene("HomeScreen");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

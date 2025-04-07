@@ -434,6 +434,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86a27eeb90307d640b8bd33ee3ff383c, type: 3}
+--- !u!1001 &5300684205191495591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.069299
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4151688
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.300691
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337479770509245677, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969161688645707351, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
+      propertyPath: m_Name
+      value: '3.2 wolke  looking '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b5f566d02e03d147853456b72c39c53, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -441,3 +498,4 @@ SceneRoots:
   - {fileID: 1284313735}
   - {fileID: 1990328527}
   - {fileID: 1106528799539412401}
+  - {fileID: 5300684205191495591}
