@@ -26,18 +26,18 @@ public class FireHomingBullet : MonoBehaviour
                 Instantiate(gunSoundPrefab, firePoint1.position, Quaternion.identity);
                 Instantiate(bullet, firePoint0.position, Quaternion.identity);
                 timer = 0f;
+                NextPhase();
             }
         }
-        NextPhase();
     }
 
     void NextPhase()
     {
-        if(health.currentHealth < 600)
+        if(health.currentHealth < health.maxHealth/3 * 2)
         {
             fireRate = 1; //zorgt dat boss sneller schiet
         }
-        else if(health.currentHealth < 300)
+        else if(health.currentHealth < health.maxHealth / 3)
         {
             fireRate = 0.5f; //zorgt dat boss nog sneller schiet
         }
