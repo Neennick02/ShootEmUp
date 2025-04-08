@@ -477,7 +477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d0c3f348cf25abd45b2718cf716c89fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: decdeb756e791f243855f45e35e4b8bb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1436,7 +1436,7 @@ RectTransform:
   m_GameObject: {fileID: 1180948923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0265, y: 33.8242, z: 1.0265}
+  m_LocalScale: {x: 1, y: 33.8242, z: 1.0265}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1691046018}
@@ -1444,7 +1444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -508, y: -922.21}
+  m_AnchoredPosition: {x: -556.7, y: -911.6}
   m_SizeDelta: {x: 758, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180948925
@@ -1543,16 +1543,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'insert teamverdeling enzo
+  m_text: '
 
+    Elena UI Artist
 
+    Elijah 3D Artist
 
+    Julia 2D/3D Artist
 
+    Remon
+    3D Artist
 
+    Ro 2D/3D Artist
 
+    Timo Lead Artist
 
-
-
+    Yannick Lead Programmer
 
 
     -----------------------------------------------------------------
