@@ -20,7 +20,7 @@ public class RepeatBackground : MonoBehaviour
             Instantiate(waterObject, target, transform.rotation);
             isSpawned = true;
         }
-        if(transform.position.x < -200)
+        if(transform.position.x < -400)
         {
             Destroy(gameObject);
         }
