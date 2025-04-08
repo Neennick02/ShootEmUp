@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject healthButton, speedButton, cannonButton, exit;
     [SerializeField] GameObject clickSound;
+    [SerializeField] GameObject extraCannon;
     private PlayerHealth playerHealth;
     private GameManager gameManager;
     private PlayerController playerController;
@@ -47,6 +48,7 @@ public class Shop : MonoBehaviour
     {
         if (gameManager.scrapCounter >= 15)
         {
+            extraCannon.SetActive(true);
             Instantiate(clickSound);
             gameManager.scrapCounter -= 15;
             cannonButton.SetActive(false);

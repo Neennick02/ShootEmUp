@@ -2481,7 +2481,7 @@ RectTransform:
   m_GameObject: {fileID: 517092890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 598270275}
@@ -2489,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 335.2, y: -407.47}
+  m_AnchoredPosition: {x: 320.4, y: -407.47}
   m_SizeDelta: {x: 477, y: 132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &536152851
@@ -2761,6 +2761,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574856634}
   m_CullTransparentMesh: 1
+--- !u!1 &580592374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6298605237553919757, guid: 221174c8b2416214cad110ae6dec4180, type: 3}
+  m_PrefabInstance: {fileID: 5129019059006970781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &583038775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7671,6 +7676,7 @@ MonoBehaviour:
   cannonButton: {fileID: 23618509}
   exit: {fileID: 517092890}
   clickSound: {fileID: 1331463473173476753, guid: f832089455d185a4da3d3d49792ed278, type: 3}
+  extraCannon: {fileID: 580592374}
 --- !u!1 &1735072765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7718,7 +7724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godMode: 0
   speedupAmount: 10
-  unlimitedFire: 1
+  unlimitedFire: 0
   score: 0
   scrapCounter: 0
   scoreThreshold: 100

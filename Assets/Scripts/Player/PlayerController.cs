@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
          verticalSpeed = Mathf.Clamp(Input.GetAxisRaw("Vertical"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
          horizontalSpeed = Mathf.Clamp(Input.GetAxisRaw("Horizontal"), -1, 1) * Time.deltaTime * (movementSpeed * 3);
         rb.AddRelativeForce(horizontalSpeed, verticalSpeed,0);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -30, 25), Mathf.Clamp(transform.position.y, 16, 39), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -30, 25), Mathf.Clamp(transform.position.y, 16, 42), transform.position.z);
     }
 
     void RotatePlayer() //draait speler om te kunnen richten
