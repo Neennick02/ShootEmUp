@@ -7,6 +7,7 @@ public class BossHoming : MonoBehaviour
     Transform target;
     public float speed = 5f;
     public float rotateSpeed = .03f;
+    int bullethealth = 2;
     
 
     private Rigidbody rb;
@@ -68,7 +69,11 @@ public class BossHoming : MonoBehaviour
         if (other.CompareTag("PlayerProjectile"))
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            bullethealth--;
+            if(bullethealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
     }
