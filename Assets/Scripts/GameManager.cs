@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Amount of score before powerups spawns")]
     [SerializeField] private float scoreThreshold;
     [Header("UI elements")]
+    [SerializeField] GameObject clickSound;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scoreTextDeathScreen;
     [SerializeField] private TextMeshProUGUI scoreTextEndScreen;
@@ -194,6 +195,7 @@ public class GameManager : MonoBehaviour
         {
             openShop = true;
             PauseAndUnPause(0f, false);
+            Instantiate(clickSound);
             shopScreen.SetActive(true);
         }
     }
@@ -217,6 +219,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && gameStarted)
         {
+            Instantiate(clickSound);
             if (!paused)
             {
                 pauseScreen.SetActive(true);
@@ -268,17 +271,20 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene() //methods voor ui knoppen
     {
-            SceneManager.LoadScene("MainScene");
+        Instantiate(clickSound);
+        SceneManager.LoadScene("MainScene");
     }
 
     public void QuitToTitle()//methods voor ui knoppen
     {
+        Instantiate(clickSound);
         SceneManager.LoadScene("HomeScreen");
 
     }
 
     public void OpenCredits()//methods voor ui knoppen
     {
+        Instantiate(clickSound);
         SceneManager.LoadScene("Credits");
     }
     void GameOver() // checkt of speler dood is

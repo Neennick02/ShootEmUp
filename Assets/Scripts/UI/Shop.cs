@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     [SerializeField] private GameObject healthButton, speedButton, cannonButton, exit;
+    [SerializeField] GameObject clickSound;
     private PlayerHealth playerHealth;
     private GameManager gameManager;
     private PlayerController playerController;
@@ -20,6 +21,7 @@ public class Shop : MonoBehaviour
     {
         if (gameManager.scrapCounter >= 5)
         {
+            Instantiate(clickSound);
             gameManager.scrapCounter -= 5;
             playerHealth.maxHealth = 160;
             bar.SetMaxHealth(playerHealth.maxHealth);
@@ -33,6 +35,7 @@ public class Shop : MonoBehaviour
     {
         if (gameManager.scrapCounter >= 10)
         {
+            Instantiate(clickSound);
             gameManager.scrapCounter -= 10;
             playerController.movementSpeed = playerController.movementSpeed * 1.6f;
             speedButton.SetActive(false);
@@ -44,6 +47,7 @@ public class Shop : MonoBehaviour
     {
         if (gameManager.scrapCounter >= 15)
         {
+            Instantiate(clickSound);
             gameManager.scrapCounter -= 15;
             cannonButton.SetActive(false);
             playerController.extraCannonActivated = true;
@@ -53,6 +57,7 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
+        Instantiate(clickSound);
         gameManager.CloseShop();
     }
 }
