@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         if(score > scoreThreshold) //spawned random powerup uit array
         {
             RandomPowerup();
-            scoreThreshold = scoreThreshold + 100;
+            scoreThreshold = scoreThreshold + 150;
         }
     }
 

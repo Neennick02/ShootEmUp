@@ -177,7 +177,6 @@ Transform:
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 933470290559524164}
   - {fileID: 3062894594728294756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,12 +253,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7355354899237159180}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6347518, y: -0.31159312, z: -0.31159326, w: 0.63475156}
-  m_LocalPosition: {x: -3.6, y: -0.7, z: -0}
-  m_LocalScale: {x: 0.57383335, y: 0.5555556, z: 0.53790545}
+  m_LocalRotation: {x: 0.3115933, y: -0.31159306, z: 0.63475156, w: 0.6347518}
+  m_LocalPosition: {x: -0.044765472, y: -4.23, z: 1.6099992}
+  m_LocalScale: {x: 0.5738334, y: 0.5555556, z: 0.5379055}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6247038584977340968}
+  m_Father: {fileID: 3062894594728294756}
   m_LocalEulerAnglesHint: {x: 142.29199, y: 90, z: 90}
 --- !u!108 &7530755998079573779
 Light:
@@ -578,6 +577,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5687052420384381360}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933470290559524164}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6f0d2ef1b97589449dbbeb8ed368664, type: 3}
       insertIndex: -1
@@ -609,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c54c7960ce994085833878ab07c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2000
+  maxHealth: 4500
   scrapPrefab: {fileID: 4894546655571899631, guid: 3d991e4016cd73044a2bda3a8b2978b0, type: 3}
   currentHealth: 0
 --- !u!64 &6546343263563319235
